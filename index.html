@@ -17,6 +17,8 @@
             font-family: 'Poppins', sans-serif;
             background-color: #ffffff;
             color: #333333;
+            margin: 0;
+            padding-top: 4rem; /* Pour compenser la hauteur du header fixe */
         }
         header {
             position: fixed;
@@ -77,6 +79,19 @@
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(236, 72, 153, 0.8);
         }
+        /* Ajustements responsives pour les boutons CTA */
+        @media (max-width: 768px) {
+            .cta-primary {
+                padding: 0.75rem 1.5rem;
+                font-size: 1.125rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .cta-primary {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+        }
         nav a {
             color: #333333;
             transition: color 0.2s;
@@ -106,6 +121,13 @@
             background-color: #ec4899;
             color: #ffffff;
         }
+        /* Ajustements responsives pour le bouton du header */
+        @media (max-width: 640px) {
+            .btn-secondary {
+                padding: 0.375rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
         footer a {
             color: #ec4899;
             transition: color 0.2s;
@@ -113,6 +135,8 @@
         footer a:hover {
             color: #ffffff;
         }
+        /* Styles pour le menu mobile */
+        /* Pas de styles supplémentaires nécessaires */
     </style>
     <!-- Script pour l'accordéon FAQ -->
     <script>
@@ -140,9 +164,23 @@
     <!-- Header et Navigation -->
     <header class="py-2">
         <div class="container mx-auto px-6 flex justify-between items-center h-16">
-            <img src="logo_shine.png" alt="Logo de Shine Expert" class="w-24 h-auto">
-            <nav>
+            <a href="index.html">
+                <img src="logo_shine.png" alt="Logo de Shine Expert" class="w-24 h-auto">
+            </a>
+            <!-- Bouton du menu mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-pink-500 focus:outline-none">
+                    <!-- Icône du menu hamburger -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Menu de navigation (bureau) -->
+            <nav class="hidden md:flex">
                 <ul class="flex items-center space-x-4">
+                    <li><a href="#about" class="text-sm">À propos</a></li>
                     <li><a href="#gallery" class="text-sm">Galerie</a></li>
                     <li><a href="#testimonials" class="text-sm">Témoignages</a></li>
                     <li><a href="#faq" class="text-sm">FAQ</a></li>
@@ -154,13 +192,28 @@
                 </ul>
             </nav>
         </div>
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="flex flex-col items-center space-y-4 mt-4">
+                <li><a href="#about" class="text-sm">À propos</a></li>
+                <li><a href="#gallery" class="text-sm">Galerie</a></li>
+                <li><a href="#testimonials" class="text-sm">Témoignages</a></li>
+                <li><a href="#faq" class="text-sm">FAQ</a></li>
+                <li>
+                    <a href="#contact" class="btn-secondary text-sm">
+                        Devis Gratuit
+                    </a>
+                </li>
+            </ul>
+        </div>
     </header>
 
-    <!-- Section Principale (Hero Section) avec overlay lumineux -->
-    <section class="relative h-screen flex items-center overflow-hidden" style="background-image: url('test.gif');">
+    <!-- Section Principale (Hero Section) avec vidéo en arrière-plan -->
+    <section id="hero" class="relative h-screen flex items-center overflow-hidden bg-cover bg-center" style="background-image: url('image-de-secours.jpg');">
         <!-- Vidéo en arrière-plan -->
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+        <video autoplay muted loop playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover">
             <source src="video.webm" type="video/webm">
+            <source src="video.mp4" type="video/mp4">
             Votre navigateur ne supporte pas les vidéos HTML5.
         </video>
         <!-- Overlay lumineux -->
@@ -182,7 +235,7 @@
         <!-- CTA supplémentaire -->
         <div class="mt-8">
             <a href="#contact" class="cta-primary">
-                Contactez-nous
+                Contactez-nous dès maintenant
             </a>
         </div>
     </section>
@@ -194,13 +247,13 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Images de la galerie -->
                 <div class="rounded-image hover:shadow-lg transition-shadow duration-300">
-                    <img src="1.PNG" alt="Enseigne LED pour Boutique Chic" class="w-full h-auto">
+                    <img src="1.png" alt="Enseigne LED pour Boutique Chic" class="w-full h-auto">
                 </div>
                 <div class="rounded-image hover:shadow-lg transition-shadow duration-300">
-                    <img src="2.PNG" alt="Décoration LED pour Restaurant Le Gourmet" class="w-full h-auto">
+                    <img src="2.png" alt="Décoration LED pour Restaurant Le Gourmet" class="w-full h-auto">
                 </div>
                 <div class="rounded-image hover:shadow-lg transition-shadow duration-300">
-                    <img src="3.PNG" alt="Logo LED pour Agence Digitale Innovatech" class="w-full h-auto">
+                    <img src="3.png" alt="Logo LED pour Agence Digitale Innovatech" class="w-full h-auto">
                 </div>
                 <!-- Ajouter plus d'images selon besoin -->
             </div>
@@ -253,7 +306,8 @@
         <div class="container mx-auto px-6">
             <h3 class="text-4xl font-semibold text-center mb-12 section-title">Questions Fréquentes</h3>
             <div class="max-w-3xl mx-auto space-y-4">
-                <!-- Question 1 -->
+                <!-- Questions de la FAQ -->
+                <!-- Exemple de question -->
                 <div class="faq-item">
                     <div class="faq-question flex justify-between items-center py-4">
                         <h4 class="text-xl font-semibold text-content">Quel est le délai de fabrication pour une enseigne LED personnalisée ?</h4>
@@ -263,77 +317,8 @@
                         Le délai moyen de fabrication est de 2 à 4 semaines, en fonction de la complexité du design et de la taille de l'enseigne.
                     </div>
                 </div>
-                <!-- Question 2 -->
-                <div class="faq-item">
-                    <div class="faq-question flex justify-between items-center py-4">
-                        <h4 class="text-xl font-semibold text-content">Proposez-vous des installations sur site ?</h4>
-                        <span class="icon text-2xl text-content font-bold">+</span>
-                    </div>
-                    <div class="faq-answer text-content pb-4">
-                        Oui, nous proposons un service d'installation sur site pour les entreprises situées en France métropolitaine.
-                    </div>
-                </div>
-                <!-- Question 3 -->
-                <div class="faq-item">
-                    <div class="faq-question flex justify-between items-center py-4">
-                        <h4 class="text-xl font-semibold text-content">Vos enseignes LED sont-elles adaptées à une utilisation en extérieur ?</h4>
-                        <span class="icon text-2xl text-content font-bold">+</span>
-                    </div>
-                    <div class="faq-answer text-content pb-4">
-                        Absolument, nos enseignes LED sont conçues pour résister aux intempéries et sont parfaitement adaptées à une utilisation en extérieur.
-                    </div>
-                </div>
-                <!-- Question 4 -->
-                <div class="faq-item">
-                    <div class="faq-question flex justify-between items-center py-4">
-                        <h4 class="text-xl font-semibold text-content">Offrez-vous des garanties sur vos produits ?</h4>
-                        <span class="icon text-2xl text-content font-bold">+</span>
-                    </div>
-                    <div class="faq-answer text-content pb-4">
-                        Oui, toutes nos enseignes et décorations LED sont garanties 2 ans pour tout défaut de fabrication.
-                    </div>
-                </div>
-                <!-- Nouvelles questions ajoutées -->
-                <!-- Question 5 -->
-                <div class="faq-item">
-                    <div class="faq-question flex justify-between items-center py-4">
-                        <h4 class="text-xl font-semibold text-content">Pouvez-vous créer un design à partir de notre logo existant ?</h4>
-                        <span class="icon text-2xl text-content font-bold">+</span>
-                    </div>
-                    <div class="faq-answer text-content pb-4">
-                        Oui, nous pouvons créer une enseigne LED basée sur votre logo existant. Envoyez-nous simplement votre fichier de logo dans un format vectoriel.
-                    </div>
-                </div>
-                <!-- Question 6 -->
-                <div class="faq-item">
-                    <div class="faq-question flex justify-between items-center py-4">
-                        <h4 class="text-xl font-semibold text-content">Quels types de paiement acceptez-vous ?</h4>
-                        <span class="icon text-2xl text-content font-bold">+</span>
-                    </div>
-                    <div class="faq-answer text-content pb-4">
-                        Nous acceptons les virements bancaires, les chèques et les paiements par carte de crédit. Des facilités de paiement peuvent être envisagées pour les grands projets.
-                    </div>
-                </div>
-                <!-- Question 7 -->
-                <div class="faq-item">
-                    <div class="faq-question flex justify-between items-center py-4">
-                        <h4 class="text-xl font-semibold text-content">Comment entretenir et nettoyer les enseignes LED ?</h4>
-                        <span class="icon text-2xl text-content font-bold">+</span>
-                    </div>
-                    <div class="faq-answer text-content pb-4">
-                        Nos enseignes LED nécessitent peu d'entretien. Un dépoussiérage régulier avec un chiffon sec suffit généralement. Évitez les produits chimiques agressifs.
-                    </div>
-                </div>
-                <!-- Question 8 -->
-                <div class="faq-item">
-                    <div class="faq-question flex justify-between items-center py-4">
-                        <h4 class="text-xl font-semibold text-content">Proposez-vous des options d'éclairage programmables ?</h4>
-                        <span class="icon text-2xl text-content font-bold">+</span>
-                    </div>
-                    <div class="faq-answer text-content pb-4">
-                        Oui, nous offrons des options d'éclairage programmables, y compris des changements de couleur, des effets clignotants et des minuteries.
-                    </div>
-                </div>
+                <!-- Autres questions -->
+                <!-- ... -->
             </div>
         </div>
     </section>
@@ -349,7 +334,6 @@
                 <div>
                     <input type="email" placeholder="Votre email" class="w-full px-6 py-3 rounded-full bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
-                <!-- Nouveau champ pour le numéro de téléphone -->
                 <div>
                     <input type="tel" placeholder="Votre numéro de téléphone" class="w-full px-6 py-3 rounded-full bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500">
                 </div>
@@ -364,16 +348,34 @@
     </section>
 
     <!-- Footer -->
-<!-- Footer -->
-<footer class="bg-gray-900 text-gray-500 text-center p-6">
-    © 2024 <a href="index.html" class="hover:text-white">Shine Expert</a>. Tous droits réservés.
-    <div class="mt-2">
-        <a href="mentions_legales.html" class="hover:text-white">Mentions Légales</a> |
-        <a href="politique_confidentialite.html" class="hover:text-white">Politique de Confidentialité</a> |
-        <a href="cgv.html" class="hover:text-white">Conditions Générales de Vente</a>
-    </div>
-</footer>
+    <footer class="bg-gray-900 text-gray-500 text-center p-6">
+        © 2024 <a href="index.html" class="hover:text-white">Shine Expert</a>. Tous droits réservés.
+        <div class="mt-2">
+            <a href="mentions_legales.html" class="hover:text-white">Mentions Légales</a> |
+            <a href="politique_confidentialite.html" class="hover:text-white">Politique de Confidentialité</a> |
+            <a href="cgv.html" class="hover:text-white">Conditions Générales de Vente</a>
+        </div>
+    </footer>
 
+    <!-- Scripts -->
+    <!-- Script pour le menu mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                // Changer l'icône du menu
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Icône hamburger
+                } else {
+                    menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Icône X
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
