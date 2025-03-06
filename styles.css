@@ -1,0 +1,157 @@
+/* Ce fichier est optionnel car nous utilisons Tailwind CSS directement dans le HTML */
+/* Vous pouvez ajouter ici des styles personnalisés supplémentaires si nécessaire */
+
+/* Animations personnalisées */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animation de rebond pour les boutons */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce 2s infinite;
+}
+
+/* Effet de brillance pour les cartes */
+@keyframes shine {
+  0% { background-position: -100px; }
+  60%, 100% { background-position: 320px; }
+}
+
+.shine-effect:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  background-position: -100px;
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
+
+/* Animation de flottement */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animation de pulsation pour les éléments d'accent */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+.pulse-animation {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Effet de halo lumineux */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.8); }
+}
+
+.glow-animation {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Effet de rotation lente pour les icônes */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+/* Styles pour les formulaires focus */
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Styles pour les boutons au survol */
+.btn-hover-effect:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4), 0 8px 10px -6px rgba(99, 102, 241, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Effet de zoom sur les images */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* Effet de soulignement progressif pour les liens */
+.underline-animation {
+  position: relative;
+}
+
+.underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-image: linear-gradient(to right, #6366F1, #8B5CF6);
+  transition: width 0.3s ease;
+}
+
+.underline-animation:hover:after {
+  width: 100%;
+}
+
+/* Effet de morphing pour les formes de fond */
+@keyframes morphing {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.morphing-shape {
+  animation: morphing 15s ease-in-out infinite;
+}
+
+/* Effet de parallaxe pour les éléments de fond */
+.parallax {
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Effet de verre dépoli */
+.frosted-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+} 

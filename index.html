@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Bungee - Agence de création digitale à Montbéliard. Sites web, applications web et mobiles pour seulement 500€. Contactez-nous pour donner vie à vos projets digitaux.">
+    <title>Bungee | Agence de Création Digitale à Montbéliard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("VOTRE_CLE_PUBLIQUE"); // Remplacez par votre clé publique EmailJS
+        })();
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366F1',
+                        secondary: '#06B6D4',
+                        dark: '#111827',
+                        accent: '#F59E0B',
+                        premium: '#8B5CF6',
+                        gold: '#F59E0B',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'custom': '0 10px 25px -5px rgba(99, 102, 241, 0.2), 0 8px 10px -6px rgba(99, 102, 241, 0.1)',
+                        'premium': '0 20px 30px -10px rgba(139, 92, 246, 0.3), 0 10px 15px -5px rgba(139, 92, 246, 0.2)',
+                        'glow': '0 0 15px rgba(99, 102, 241, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .text-shadow-light {
+                text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+            }
+            .transition-nav {
+                transition: all 0.3s ease-in-out;
+            }
+            .gradient-text {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                background-image: linear-gradient(to right, #6366F1, #8B5CF6, #06B6D4);
+            }
+            .gradient-bg {
+                background-image: linear-gradient(135deg, #6366F1, #8B5CF6, #06B6D4);
+            }
+            .card-hover {
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            .card-hover:hover {
+                transform: translateY(-15px) scale(1.02);
+                box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
+            }
+            .glass-effect {
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+            }
+            .border-gradient {
+                border: 2px solid transparent;
+                background-clip: padding-box, border-box;
+                background-origin: padding-box, border-box;
+                background-image: linear-gradient(to right, white, white), linear-gradient(to right, #6366F1, #8B5CF6);
+            }
+            .border-gradient:hover {
+                background-image: linear-gradient(to right, white, white), linear-gradient(to right, #8B5CF6, #06B6D4);
+            }
+            .slide-up {
+                animation: slideUp 0.6s ease-out;
+            }
+            
+            @keyframes slideUp {
+                from { transform: translateY(20px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            
+            .loading-skeleton {
+                background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+                background-size: 200% 100%;
+                animation: loading 1.5s infinite;
+            }
+            
+            @keyframes loading {
+                from { background-position: 200% 0; }
+                to { background-position: -200% 0; }
+            }
+            
+            .focus-ring {
+                transition: all 0.2s ease;
+            }
+            
+            .focus-ring:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
+            }
+            
+            /* Animation pour le bouton WhatsApp */
+            @keyframes pulse-whatsapp {
+                0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+                70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            }
+            
+            .whatsapp-pulse {
+                animation: pulse-whatsapp 2s infinite;
+            }
+            
+            /* Styles pour améliorer l'expérience mobile */
+            @media (max-width: 768px) {
+                .mobile-padding {
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                }
+                
+                .mobile-text-center {
+                    text-align: center;
+                }
+                
+                .mobile-full-width {
+                    width: 100%;
+                }
+                
+                .mobile-py {
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;
+                }
+                
+                .mobile-stack {
+                    flex-direction: column;
+                }
+            }
+            
+            /* Amélioration du menu mobile */
+            .mobile-menu-slide {
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .mobile-menu-slide.active {
+                transform: translateY(0);
+            }
+            
+            /* Amélioration des boutons tactiles sur mobile */
+            .touch-target {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-sans bg-gray-50">
+    <!-- Bouton Retour en haut -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-50 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 transition-all duration-300 hover:bg-indigo-600" aria-label="Retour en haut">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <!-- Bouton WhatsApp repositionné et initialement caché -->
+    <a href="https://wa.me/33695119297" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       id="whatsapp-button"
+       class="fixed bottom-24 right-8 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 group opacity-0" 
+       aria-label="Contactez-nous sur WhatsApp">
+        <!-- WhatsApp Icon -->
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <!-- Tooltip modifié pour s'afficher à gauche -->
+        <span class="absolute right-full mr-4 bg-dark text-white text-sm py-2 px-4 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+            Contactez-nous sur WhatsApp
+        </span>
+    </a>
+
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-primary z-50 transition-all duration-300"></div>
+
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 glass-effect">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-extrabold gradient-text">Bungee</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#accueil" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">Accueil</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">Services</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">Portfolio</a>
+                    <a href="#temoignages" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">Témoignages</a>
+                    <a href="#apropos" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">À propos</a>
+                    <a href="#contact" class="gradient-bg text-white px-5 py-2.5 rounded-full hover:shadow-glow transition-all duration-300 transform hover:scale-105">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md rounded-b-lg overflow-hidden">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#accueil" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">Accueil</a>
+                <a href="#services" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">Services</a>
+                <a href="#portfolio" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">Portfolio</a>
+                <a href="#temoignages" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">Témoignages</a>
+                <a href="#apropos" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">À propos</a>
+                <a href="#contact" class="block px-4 py-3 gradient-bg text-white rounded-lg text-center font-medium shadow-md touch-target">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="accueil" class="pt-20 pb-12 md:pt-32 md:pb-24 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="absolute top-20 right-10 w-64 h-64 bg-gradient-to-br from-primary/10 to-premium/10 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-10 left-10 w-72 h-72 bg-gradient-to-tr from-secondary/10 to-gold/10 rounded-full filter blur-3xl"></div>
+            
+            <div class="flex flex-col md:flex-row items-center relative z-10">
+                <div class="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left" data-aos="fade-up">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-4 leading-tight">
+                        Votre site web pro en 7 jours pour 500€
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-6">
+                        Vous avez besoin d'un site internet de qualité rapidement ? Bungee crée votre site clé en main en une semaine, pour un tarif fixe de 500€.
+                    </p>
+                    
+                    <div class="space-y-3 mb-6 text-left max-w-md mx-auto md:mx-0">
+                        <div class="flex items-start bg-white/70 p-2 rounded-lg shadow-sm">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-700"><span class="font-semibold text-dark">Rapide :</span> Mise en ligne en 7 jours chrono</p>
+                        </div>
+                        <div class="flex items-start bg-white/70 p-2 rounded-lg shadow-sm">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-700"><span class="font-semibold text-dark">Abordable :</span> Forfait tout compris à 500€</p>
+                        </div>
+                        <div class="flex items-start bg-white/70 p-2 rounded-lg shadow-sm">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-700"><span class="font-semibold text-dark">Clé en main :</span> Idéal pour petites entreprises</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 max-w-md mx-auto md:mx-0">
+                        <a href="#contact" class="gradient-bg text-white px-6 py-3 rounded-full text-lg font-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-center touch-target w-full">
+                            Demandez votre devis
+                        </a>
+                        <a href="#services" class="border-2 border-primary text-primary px-6 py-3 rounded-full text-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 text-center touch-target w-full">
+                            Nos services
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 md:pl-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative mx-auto max-w-xs sm:max-w-sm md:max-w-none">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl md:rounded-3xl transform rotate-3"></div>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                             alt="Création de site web professionnel" 
+                             class="relative z-10 rounded-2xl md:rounded-3xl shadow-xl transform -rotate-3 hover:rotate-0 transition-all duration-500 w-full h-auto object-cover"
+                             loading="eager">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full filter blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/5 to-secondary/5 rounded-full filter blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1.5 bg-indigo-100 text-primary rounded-full text-sm font-semibold mb-4">Nos Services</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Des solutions digitales complètes à prix fixe</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Pour le prix d'une simple publicité, offrez-vous une présence en ligne qui va générer des clients sur le long terme.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-custom overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-8">
+                        <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">Site Vitrine</h3>
+                        <p class="text-gray-600 mb-6">
+                            Un site web professionnel pour présenter votre activité et attirer de nouveaux clients. Livré en 7 jours, prêt à l'emploi.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-primary">500€</span>
+                            <span class="text-gray-500 text-sm">Forfait tout compris</span>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-gray-100">
+                            <ul class="space-y-2">
+                                <li class="flex items-center text-gray-700">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Design responsive moderne
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Optimisé pour le référencement
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Formulaire de contact
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Livraison en 7 jours
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <a href="#contact" class="block w-full gradient-bg text-white py-3 rounded-lg text-center font-medium hover:shadow-glow transition-all duration-300">
+                            Obtenir mon site en 7 jours
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-premium overflow-hidden card-hover relative group transform scale-105">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-premium"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-premium/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute top-6 right-6">
+                        <span class="inline-block px-3 py-1 bg-gradient-to-r from-primary to-premium text-white text-xs font-semibold rounded-full">Populaire</span>
+                    </div>
+                    <div class="p-8 relative z-10">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-code text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-4">Applications Web</h3>
+                        <p class="text-gray-600 mb-6">
+                            Des outils en ligne simples et efficaces pour améliorer votre travail quotidien.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-green-500 text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Interface simple</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-green-500 text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Fonctions sur mesure</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-green-500 text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Protection des données</span>
+                            </li>
+                        </ul>
+                        <div class="pt-6 border-t border-gray-100">
+                            <div class="flex items-end justify-between">
+                                <div>
+                                    <p class="text-primary font-bold text-3xl">500€</p>
+                                    <p class="text-gray-500 text-sm">Prix fixe, sans surprise</p>
+                                </div>
+                                <a href="#contact" class="gradient-bg text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-glow">
+                                    En savoir plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-custom overflow-hidden card-hover relative group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-premium/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="p-8 relative z-10">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-mobile-alt text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-4">Applications Mobiles</h3>
+                        <p class="text-gray-600 mb-6">
+                            Des applications pour smartphones iPhone et Android, adaptées à vos besoins.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-green-500 text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">iPhone et Android</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-green-500 text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Design facile à utiliser</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-green-500 text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Mises à jour incluses</span>
+                            </li>
+                        </ul>
+                        <div class="pt-6 border-t border-gray-100">
+                            <div class="flex items-end justify-between">
+                                <div>
+                                    <p class="text-primary font-bold text-3xl">500€</p>
+                                    <p class="text-gray-500 text-sm">Prix fixe, sans surprise</p>
+                                </div>
+                                <a href="#contact" class="bg-primary/10 hover:bg-primary text-primary hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                                    En savoir plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16" data-aos="fade-up">
+                <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+                    Soyez en ligne dès la semaine prochaine en rejoignant dès aujourd'hui notre programme Bungee. Nombre de projets limités chaque mois !
+                </p>
+                <a href="#contact" class="inline-block gradient-bg text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+                    Demandez votre devis gratuit maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-indigo-50 to-blue-50 relative overflow-hidden">
+        <div class="absolute top-20 right-20 w-72 h-72 bg-white rounded-full opacity-70 filter blur-3xl"></div>
+        <div class="absolute bottom-20 left-20 w-72 h-72 bg-indigo-100 rounded-full opacity-70 filter blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1.5 bg-indigo-100 text-primary rounded-full text-sm font-semibold mb-4">Portfolio</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Nos réalisations</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvrez quelques-uns des projets que nous avons réalisés pour nos clients.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-custom overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden img-zoom">
+                        <img src="images/five.png" 
+                             alt="Site e-commerce pour une boutique locale" 
+                             class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-6">
+                                <a href="https://fiveapp.fr" 
+                                   class="inline-block text-white bg-primary/90 hover:bg-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 md:transform md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">FiveApp</h3>
+                        <p class="text-gray-600 mb-4">
+                            Application web de création et d'organisation de matchs de foot à 5.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-indigo-100 text-primary text-xs font-medium rounded-full">Site Web</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">Application Mobile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-custom overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden img-zoom">
+                        <img src="images/cake.png" 
+                             alt="Application de gestion pour un restaurant" 
+                             class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-6">
+                                <a href="https://cakebeauty.shop" class="text-white bg-primary/90 hover:bg-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Cake Beauty Dubai</h3>
+                        <p class="text-gray-600 mb-4">
+                            Site Web de commande de desserts réalisé pour l'entreprise Cake Beauty à Audincourt, afin de faciliter la gestion de ses clients et de leurs commandes.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-indigo-100 text-primary text-xs font-medium rounded-full">Site Web</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-custom overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden img-zoom">
+                        <img src="images/carokaz.png" 
+                             alt="Application mobile pour un SaaS" 
+                             class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-6">
+                                <a href="https://carokaz.fr" class="text-white bg-primary/90 hover:bg-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-2">Carokaz</h3>
+                        <p class="text-gray-600 mb-4">
+                            Application mobile permettant de trouver les meilleures offres auto d'occasion en France.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-indigo-100 text-primary text-xs font-medium rounded-full">App Mobile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="inline-block gradient-bg text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+                    Discutons de votre projet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="temoignages" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-indigo-50 to-blue-50 relative overflow-hidden">
+        <div class="absolute top-20 right-20 w-72 h-72 bg-white rounded-full opacity-70 filter blur-3xl"></div>
+        <div class="absolute bottom-20 left-20 w-72 h-72 bg-indigo-100 rounded-full opacity-70 filter blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1.5 bg-indigo-100 text-primary rounded-full text-sm font-semibold mb-4">Témoignages</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Ce que nos clients disent</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvrez les retours d'expérience de nos clients satisfaits.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-custom transform transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Bungee a parfaitement compris nos besoins et a développé une application web qui facilite grandement l'organisation de nos matchs de foot. L'interface est intuitive et nos utilisateurs l'adorent !"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-premium flex items-center justify-center text-white mr-4">
+                            <span class="font-bold">TH</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark">Thomas Hanzolone</h4>
+                            <p class="text-gray-500 text-sm">Five App</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-custom transform transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Notre site de commande en ligne a transformé notre activité. Les commandes sont maintenant beaucoup plus simples à gérer et nos clients apprécient la facilité d'utilisation."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-premium to-gold flex items-center justify-center text-white mr-4">
+                            <span class="font-bold">RH</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark">Romie H.</h4>
+                            <p class="text-gray-500 text-sm">Cake Beauty</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-custom transform transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "L'application Carokaz nous permet de proposer une expérience unique à nos utilisateurs dans leur recherche de véhicules d'occasion. Un vrai plus pour notre service !"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-white mr-4">
+                            <span class="font-bold">TC</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark">Thomas Carreton</h4>
+                            <p class="text-gray-500 text-sm">Carokaz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos" class="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-premium to-secondary"></div>
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-indigo-50 rounded-full filter blur-3xl opacity-70"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-50 rounded-full filter blur-3xl opacity-70"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Entrepreneur créatif au travail" class="rounded-xl shadow-xl transform hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">À propos de Bungee</h2>
+                    <p class="text-gray-600 mb-6">
+                        Basée à Montbéliard, Bungee est une équipe passionnée qui crée des sites internet et des applications. Notre mission : rendre le numérique accessible à tous, avec des solutions de qualité à prix fixe.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Notre équipe combine créativité et savoir-faire technique pour donner vie à vos projets, qu'il s'agisse d'un site vitrine, d'un outil en ligne ou d'une application pour smartphone.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-check text-primary"></i>
+                            </div>
+                            <span class="text-gray-700">Prix transparent</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-primary"></i>
+                            </div>
+                            <span class="text-gray-700">Délais respectés</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-primary"></i>
+                            </div>
+                            <span class="text-gray-700">Équipe experte</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-headset text-primary"></i>
+                            </div>
+                            <span class="text-gray-700">Support réactif</span>
+                        </div>
+                    </div>
+                    <a href="#contact"
+                        class="bg-primary text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-600 transition-all duration-300 inline-block">
+                        Contactez-nous
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-indigo-50 to-blue-50 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1.5 bg-indigo-100 text-primary rounded-full text-sm font-semibold mb-4">Contact</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Prêt à lancer votre site en 7 jours ?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Remplissez le formulaire ci-dessous pour obtenir votre devis gratuit. Nous vous répondrons dans les 24h.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-xl p-6 md:p-8" data-aos="fade-up">
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Nom</label>
+                            <input type="text" id="name" name="name" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target"
+                                required data-error="Veuillez entrer votre nom">
+                            <div class="text-red-500 text-sm mt-1 hidden error-message"></div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target"
+                                required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Téléphone</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target">
+                        </div>
+                        <div>
+                            <label for="service" class="block text-gray-700 mb-2">Service souhaité</label>
+                            <select id="service" name="service"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target">
+                                <option value="">Sélectionnez un service</option>
+                                <option value="site-web">Site Web</option>
+                                <option value="application-web">Application Web</option>
+                                <option value="application-mobile">Application Mobile</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target"
+                                required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-primary text-white px-6 py-4 rounded-lg text-lg font-medium hover:bg-indigo-600 transition-all duration-300 shadow-lg hover:shadow-xl touch-target">
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+            
+            <div class="mt-8 text-center" data-aos="fade-up">
+                <p class="text-gray-600">
+                    Ou contactez-nous directement par WhatsApp en cliquant sur le bouton vert en bas à droite de votre écran.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Bungee</h3>
+                    <p class="text-gray-400 mb-4">
+                        Votre partenaire digital à Montbéliard pour tous vos projets web et mobile.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">Sites Web</a></li>
+                        <li><a href="#services"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">Applications
+                                Web</a></li>
+                        <li><a href="#services"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">Applications
+                                Mobiles</a></li>
+                        <li><a href="#services"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">Maintenance</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens utiles</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition-colors duration-300">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors duration-300">Services</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors duration-300">Portfolio</a></li>
+                        <li><a href="#apropos" class="text-gray-400 hover:text-white transition-colors duration-300">À
+                                propos</a></li>
+                        <li><a href="#temoignages" class="text-gray-400 hover:text-white transition-colors duration-300">Témoignages</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>06 95 11 92 97</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>contact@bungee-agency.fr</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2025 Bungee. Tous droits réservés.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="mentions-legales.html" class="text-gray-400 hover:text-white transition-colors duration-300">Mentions
+                        légales</a>
+                    <a href="politique-confidentialite.html" class="text-gray-400 hover:text-white transition-colors duration-300">Politique de
+                        confidentialité</a>
+                    <a href="cgv.html" class="text-gray-400 hover:text-white transition-colors duration-300">CGV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4 transform transition-all duration-300 scale-0">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Message envoyé !</h3>
+                <p class="text-gray-600 mb-6">Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
+                <button class="bg-primary text-white px-6 py-2 rounded-md hover:bg-indigo-600 transition-colors duration-300" onclick="closeModal()">
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        const backToTopButton = document.getElementById('back-to-top');
+        const whatsappButton = document.getElementById('whatsapp-button');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0');
+            }
+            
+            if (window.scrollY > 10) {
+                whatsappButton.classList.remove('opacity-0');
+                whatsappButton.classList.add('opacity-100');
+            } else {
+                whatsappButton.classList.remove('opacity-100');
+                whatsappButton.classList.add('opacity-0');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const progressBar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+
+        const contactForm = document.getElementById('contact-form');
+        const successModal = document.getElementById('success-modal');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+            
+            let isValid = true;
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    const errorDiv = field.nextElementSibling;
+                    errorDiv.textContent = field.dataset.error;
+                    errorDiv.classList.remove('hidden');
+                    field.classList.add('border-red-500');
+                }
+            });
+
+            if (isValid) {
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<span class="inline-block animate-spin mr-2">↻</span> Envoi...';
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const data = Object.fromEntries(formData.entries());
+                    
+                    // Envoi vers Discord via webhook
+                    await fetch('https://discord.com/api/webhooks/1347241150637146262/kyFEPVAMkRGrfd59XBb6iGqClitDqrVgLenSAhu43xf5SHi2Ek2dUj5OfvwFKXrz_mZi', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            embeds: [{
+                                title: "Nouveau lead !",
+                                color: 0x6366F1, // Couleur primary
+                                fields: [
+                                    {
+                                        name: "Nom",
+                                        value: data.name || "Non renseigné",
+                                        inline: true
+                                    },
+                                    {
+                                        name: "Email",
+                                        value: data.email || "Non renseigné",
+                                        inline: true
+                                    },
+                                    {
+                                        name: "Téléphone",
+                                        value: data.phone || "Non renseigné",
+                                        inline: true
+                                    },
+                                    {
+                                        name: "Service",
+                                        value: data.service || "Non renseigné",
+                                        inline: true
+                                    },
+                                    {
+                                        name: "Message",
+                                        value: data.message || "Pas de message"
+                                    }
+                                ],
+                                timestamp: new Date().toISOString()
+                            }]
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+
+                    // Affichage du message de succès
+                    successModal.classList.remove('hidden');
+                    successModal.querySelector('div').classList.remove('scale-0');
+                    
+                    // Réinitialisation du formulaire
+                    contactForm.reset();
+                } catch (error) {
+                    console.error('Erreur:', error);
+                    alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Envoyer le message';
+                }
+            }
+        });
+
+        function closeModal() {
+            const modal = document.getElementById('success-modal');
+            modal.querySelector('div').classList.add('scale-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation du bouton WhatsApp
+        whatsappButton.classList.add('whatsapp-pulse');
+        
+        // Arrêter l'animation au survol
+        whatsappButton.addEventListener('mouseenter', () => {
+            whatsappButton.classList.remove('whatsapp-pulse');
+        });
+        
+        // Reprendre l'animation quand la souris quitte le bouton
+        whatsappButton.addEventListener('mouseleave', () => {
+            whatsappButton.classList.add('whatsapp-pulse');
+        });
+
+        // Gestion du menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Ajouter une classe pour l'animation
+            if (!mobileMenu.classList.contains('hidden')) {
+                // Petit délai pour permettre à la transition de s'exécuter
+                setTimeout(() => {
+                    mobileMenu.classList.add('active');
+                }, 10);
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        });
+        
+        // Fermer le menu mobile quand on clique sur un lien
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300); // Correspond à la durée de la transition
+            });
+        });
+        
+        // Fermer le menu mobile quand on clique en dehors
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden') && 
+                !mobileMenu.contains(e.target) && 
+                !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        });
+        
+        // Optimisation du défilement sur mobile
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('touchend', function(e) {
+                    // Ajouter un petit délai pour éviter les clics accidentels
+                    setTimeout(() => {
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            // Ajuster l'offset pour mobile
+                            const headerOffset = window.innerWidth < 768 ? 60 : 80;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 50);
+                });
+            });
+        }
+        
+        // Optimisation des formulaires pour mobile
+        const formInputs = document.querySelectorAll('input, textarea, select');
+        formInputs.forEach(input => {
+            // Ajuster le padding sur mobile
+            if (window.innerWidth < 768) {
+                input.classList.add('py-3', 'px-4');
+            }
+            
+            // Améliorer le focus sur mobile
+            input.addEventListener('focus', () => {
+                input.classList.add('ring-2', 'ring-primary', 'ring-opacity-50');
+            });
+            
+            input.addEventListener('blur', () => {
+                input.classList.remove('ring-2', 'ring-primary', 'ring-opacity-50');
+            });
+        });
+        
+        // Détection de l'orientation pour optimiser l'affichage
+        window.addEventListener('orientationchange', () => {
+            // Recalculer les hauteurs et positions après changement d'orientation
+            setTimeout(() => {
+                AOS.refresh();
+            }, 200);
+        });
+    </script>
+</body>
+
+</html>
