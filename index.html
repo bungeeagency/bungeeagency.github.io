@@ -1,1135 +1,2464 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Bungee - Agence de création digitale à Montbéliard. Sites web, applications web et mobiles pour seulement 500€. Contactez-nous pour donner vie à vos projets digitaux.">
+    <meta name="description" content="Bungee - Agence de création digitale à Montbéliard. Sites web, applications web et mobiles pour seulement 500€.">
     <title>Bungee | Agence de Création Digitale à Montbéliard</title>
+    
+    <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDYNZ3XX49"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-NDYNZ3XX49');
     </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- GSAP for ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6366F1',
-                        secondary: '#06B6D4',
-                        dark: '#111827',
-                        accent: '#F59E0B',
-                        premium: '#8B5CF6',
-                        gold: '#F59E0B',
+                        border: "hsl(214.3 31.8% 91.4%)",
+                        input: "hsl(214.3 31.8% 91.4%)",
+                        ring: "hsl(222.2 84% 4.9%)",
+                        background: "hsl(0 0% 100%)",
+                        foreground: "hsl(222.2 84% 4.9%)",
+                        primary: {
+                            DEFAULT: "hsl(222.2 47.4% 11.2%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(215.4 16.3% 46.9%)",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        card: {
+                            DEFAULT: "hsl(0 0% 100%)",
+                            foreground: "hsl(222.2 84% 4.9%)",
+                        },
                     },
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
-                    boxShadow: {
-                        'custom': '0 10px 25px -5px rgba(99, 102, 241, 0.2), 0 8px 10px -6px rgba(99, 102, 241, 0.1)',
-                        'premium': '0 20px 30px -10px rgba(139, 92, 246, 0.3), 0 10px 15px -5px rgba(139, 92, 246, 0.2)',
-                        'glow': '0 0 15px rgba(99, 102, 241, 0.5)',
-                    }
+                    borderRadius: {
+                        lg: "var(--radius)",
+                        md: "calc(var(--radius) - 2px)",
+                        sm: "calc(var(--radius) - 4px)",
+                    },
                 }
             }
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            }
-            .text-shadow-light {
-                text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
-            }
-            .transition-nav {
-                transition: all 0.3s ease-in-out;
-            }
-            .gradient-text {
-                background-clip: text;
-                -webkit-background-clip: text;
-                color: transparent;
-                background-image: linear-gradient(to right, #6366F1, #8B5CF6, #06B6D4);
-            }
-            .gradient-bg {
-                background-image: linear-gradient(135deg, #6366F1, #8B5CF6, #06B6D4);
-            }
-            .card-hover {
-                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            }
-            .card-hover:hover {
-                transform: translateY(-15px) scale(1.02);
-                box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
-            }
-            .glass-effect {
-                background: rgba(255, 255, 255, 0.8);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.18);
-            }
-            .border-gradient {
-                border: 2px solid transparent;
-                background-clip: padding-box, border-box;
-                background-origin: padding-box, border-box;
-                background-image: linear-gradient(to right, white, white), linear-gradient(to right, #6366F1, #8B5CF6);
-            }
-            .border-gradient:hover {
-                background-image: linear-gradient(to right, white, white), linear-gradient(to right, #8B5CF6, #06B6D4);
-            }
-            .slide-up {
-                animation: slideUp 0.6s ease-out;
-            }
-            
-            @keyframes slideUp {
-                from { transform: translateY(20px); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            
-            .loading-skeleton {
-                background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-                background-size: 200% 100%;
-                animation: loading 1.5s infinite;
-            }
-            
-            @keyframes loading {
-                from { background-position: 200% 0; }
-                to { background-position: -200% 0; }
-            }
-            
-            .focus-ring {
-                transition: all 0.2s ease;
-            }
-            
-            .focus-ring:focus {
-                outline: none;
-                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
-            }
-            
-            /* Animation pour le bouton WhatsApp */
-            @keyframes pulse-whatsapp {
-                0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-                70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-                100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-            }
-            
-            .whatsapp-pulse {
-                animation: pulse-whatsapp 2s infinite;
-            }
-            
-            /* Styles pour améliorer l'expérience mobile */
-            @media (max-width: 768px) {
-                .mobile-padding {
-                    padding-left: 1rem;
-                    padding-right: 1rem;
-                }
-                
-                .mobile-text-center {
-                    text-align: center;
-                }
-                
-                .mobile-full-width {
-                    width: 100%;
-                }
-                
-                .mobile-py {
-                    padding-top: 2rem;
-                    padding-bottom: 2rem;
-                }
-                
-                .mobile-stack {
-                    flex-direction: column;
-                }
-            }
-            
-            /* Amélioration du menu mobile */
-            .mobile-menu-slide {
-                transform: translateY(-100%);
-                transition: transform 0.3s ease-in-out;
-            }
-            
-            .mobile-menu-slide.active {
-                transform: translateY(0);
-            }
-            
-            /* Amélioration des boutons tactiles sur mobile */
-            .touch-target {
-                min-height: 44px;
-                min-width: 44px;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
-
-<body class="font-sans bg-gray-50">
-    <!-- Bouton Retour en haut -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 z-50 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 transition-all duration-300 hover:bg-indigo-600" aria-label="Retour en haut">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
-        </svg>
-    </button>
-
-    <!-- Bouton WhatsApp repositionné et initialement caché -->
-    <a href="https://wa.me/33695119297" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       id="whatsapp-button"
-       class="fixed bottom-24 right-8 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 group opacity-0" 
-       aria-label="Contactez-nous sur WhatsApp">
-        <!-- WhatsApp Icon -->
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        <!-- Tooltip modifié pour s'afficher à gauche -->
-        <span class="absolute right-full mr-4 bg-dark text-white text-sm py-2 px-4 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
-            Contactez-nous sur WhatsApp
-        </span>
-    </a>
-
-    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-primary z-50 transition-all duration-300"></div>
-
-    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 glass-effect">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#" class="flex-shrink-0 flex items-center">
-                        <span class="text-2xl font-extrabold gradient-text">Bungee</span>
+<body class="font-sans antialiased bg-background text-foreground">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="text-2xl font-display font-bold tracking-tight">
+                    <span class="gradient-text">Bungee</span>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Services</a>
+                    <a href="#portfolio" class="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Portfolio</a>
+                    <a href="#testimonials" class="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Clients</a>
+                    <a href="#faq" class="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
+                    <a href="#contact" class="btn-primary">
+                        Commencer
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#accueil" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">Accueil</a>
-                    <a href="#services" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">Services</a>
-                    <a href="#portfolio" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">Portfolio</a>
-                    <a href="#temoignages" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">Témoignages</a>
-                    <a href="#apropos" class="text-gray-700 hover:text-primary font-medium transition-all duration-300 underline-animation">À propos</a>
-                    <a href="#contact" class="gradient-bg text-white px-5 py-2.5 rounded-full hover:shadow-glow transition-all duration-300 transform hover:scale-105">Contact</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
+                
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md rounded-b-lg overflow-hidden">
-            <div class="px-4 py-4 space-y-3">
-                <a href="#accueil" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">Accueil</a>
-                <a href="#services" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">Services</a>
-                <a href="#portfolio" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">Portfolio</a>
-                <a href="#temoignages" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">Témoignages</a>
-                <a href="#apropos" class="block px-4 py-3 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 touch-target">À propos</a>
-                <a href="#contact" class="block px-4 py-3 gradient-bg text-white rounded-lg text-center font-medium shadow-md touch-target">Contact</a>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background/95 backdrop-blur-md hidden">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col gap-6">
+                <a href="#services" class="mobile-link text-3xl font-display font-bold">Services</a>
+                <a href="#portfolio" class="mobile-link text-3xl font-display font-bold">Portfolio</a>
+                <a href="#testimonials" class="mobile-link text-3xl font-display font-bold">Clients</a>
+                <a href="#faq" class="mobile-link text-3xl font-display font-bold">FAQ</a>
+                <a href="#contact" class="mobile-link text-3xl font-display font-bold">Contact</a>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <section id="accueil" class="pt-20 pb-12 md:pt-32 md:pb-24 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 overflow-hidden">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="absolute top-20 right-10 w-64 h-64 bg-gradient-to-br from-primary/10 to-premium/10 rounded-full filter blur-3xl"></div>
-            <div class="absolute bottom-10 left-10 w-72 h-72 bg-gradient-to-tr from-secondary/10 to-gold/10 rounded-full filter blur-3xl"></div>
-            
-            <div class="flex flex-col md:flex-row items-center relative z-10">
-                <div class="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left" data-aos="fade-up">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-4 leading-tight">
-                        Votre site web pro en 7 jours pour 500€
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 lg:px-8 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 backdrop-blur-sm mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span class="text-sm font-medium">Places limitées - Réservez maintenant</span>
+                </div>
+                
+                <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-6">
+                    Créons quelque chose
+                    <span class="block gradient-text mt-2">d'extraordinaire</span>
                     </h1>
-                    <p class="text-lg sm:text-xl text-gray-600 mb-6">
-                        Vous avez besoin d'un site internet de qualité rapidement ? Bungee crée votre site clé en main en une semaine, pour un tarif fixe de 500€.
-                    </p>
-                    
-                    <div class="space-y-3 mb-6 text-left max-w-md mx-auto md:mx-0">
-                        <div class="flex items-start bg-white/70 p-2 rounded-lg shadow-sm">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                
+                <p class="hero-subtitle text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Agence digitale créative basée à Montbéliard. Nous transformons vos idées en expériences digitales mémorables.
+                </p>
+                
+                <div class="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#contact" class="btn-primary text-lg px-8 py-4">
+                        Démarrer un projet
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#portfolio" class="btn-secondary text-lg px-8 py-4">
+                        Voir nos réalisations
+                    </a>
                                 </div>
+                
+                <!-- Stats -->
+                <div class="hero-stats grid grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto">
+                    <div class="stat-item">
+                        <div class="text-4xl font-display font-bold gradient-text">50+</div>
+                        <div class="text-sm text-muted-foreground mt-2">Projets livrés</div>
                             </div>
-                            <p class="ml-3 text-gray-700"><span class="font-semibold text-dark">Rapide :</span> Mise en ligne en 7 jours chrono</p>
+                    <div class="stat-item">
+                        <div class="text-4xl font-display font-bold gradient-text">100%</div>
+                        <div class="text-sm text-muted-foreground mt-2">Clients satisfaits</div>
                         </div>
-                        <div class="flex items-start bg-white/70 p-2 rounded-lg shadow-sm">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                    <div class="stat-item">
+                        <div class="text-4xl font-display font-bold gradient-text">7j</div>
+                        <div class="text-sm text-muted-foreground mt-2">Livraison rapide</div>
                                 </div>
                             </div>
-                            <p class="ml-3 text-gray-700"><span class="font-semibold text-dark">Abordable :</span> Forfait tout compris à 500€</p>
-                        </div>
-                        <div class="flex items-start bg-white/70 p-2 rounded-lg shadow-sm">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <p class="ml-3 text-gray-700"><span class="font-semibold text-dark">Clé en main :</span> Idéal pour petites entreprises</p>
                         </div>
                     </div>
                     
-                    <div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 max-w-md mx-auto md:mx-0">
-                        <a href="#contact" class="gradient-bg text-white px-6 py-3 rounded-full text-lg font-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-center touch-target w-full">
-                            Demandez votre devis
-                        </a>
-                        <a href="#services" class="border-2 border-primary text-primary px-6 py-3 rounded-full text-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 text-center touch-target w-full">
-                            Nos services
-                        </a>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-indicator">
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-sm text-muted-foreground">Scroll</span>
+                <div class="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center p-2">
+                    <div class="w-1 h-3 bg-muted-foreground rounded-full animate-scroll"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Scrollytelling -->
+    <section id="services" class="py-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="section-header text-center mb-20">
+                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Ce que nous faisons</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Nos services</h2>
+                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                        Votre présence en ligne, simple et efficace. Pas de jargon compliqué, juste des solutions qui fonctionnent.
+                    </p>
+                </div>
+                
+                <!-- Service Cards -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Site Vitrine -->
+                    <div class="service-card-v2 group">
+                        <div class="service-header">
+                            <div class="service-icon-large">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div class="service-label">Parfait pour démarrer</div>
+                        </div>
+                        
+                        <div class="service-body">
+                            <h3 class="text-2xl font-display font-bold mb-3">Votre Vitrine en ligne</h3>
+                            <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                                Comme une <strong>devanture de magasin</strong>, mais sur internet. Vos clients vous trouvent facilement et découvrent vos services 24h/24.
+                            </p>
+                            
+                            <div class="benefit-box mb-6">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold mb-1">Pour qui ?</div>
+                                    <p class="text-sm text-muted-foreground">Artisans, commerces, professions libérales, TPE</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3 mb-8">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Visible partout</div>
+                                        <div class="text-sm text-muted-foreground">Fonctionne sur téléphone, tablette et ordinateur</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Facile à trouver</div>
+                                        <div class="text-sm text-muted-foreground">Optimisé pour apparaître sur Google</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Contact direct</div>
+                                        <div class="text-sm text-muted-foreground">Formulaire, téléphone, email intégrés</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Livraison express</div>
+                                        <div class="text-sm text-muted-foreground">En ligne en 7 jours chrono</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="price-tag">
+                                <div class="price-amount">500€</div>
+                                <div class="price-label">Tout compris</div>
+                            </div>
+                            
+                            <a href="#contact" class="btn-service">
+                                Je veux ma vitrine
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            
+                            <div class="service-examples mt-6">
+                                <div class="text-xs font-semibold text-muted-foreground mb-2">Exemples concrets :</div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="example-tag">🔧 Plombier</span>
+                                    <span class="example-tag">💅 Salon beauté</span>
+                                    <span class="example-tag">🏠 Agence immo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Application Web -->
+                    <div class="service-card-v2 group featured-service">
+                        <div class="featured-ribbon">
+                            <i class="fas fa-star mr-1"></i>
+                            Le plus populaire
+                </div>
+                        
+                        <div class="service-header">
+                            <div class="service-icon-large">
+                                <i class="fas fa-cogs"></i>
+                </div>
+                            <div class="service-label">Solution sur-mesure</div>
+                </div>
+                        
+                        <div class="service-body">
+                            <h3 class="text-2xl font-display font-bold mb-3">Votre Outil personnalisé</h3>
+                            <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                                Un <strong>outil en ligne qui fait exactement</strong> ce dont vous avez besoin. Gestion de réservations, suivi clients, commandes... On crée votre solution.
+                            </p>
+                            
+                            <div class="benefit-box mb-6">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-users"></i>
+            </div>
+                                <div>
+                                    <div class="font-semibold mb-1">Pour qui ?</div>
+                                    <p class="text-sm text-muted-foreground">Entreprises avec besoins spécifiques, PME</p>
+        </div>
+            </div>
+                            
+                            <div class="space-y-3 mb-8">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Gain de temps</div>
+                                        <div class="text-sm text-muted-foreground">Automatise vos tâches répétitives</div>
+        </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Simple d'utilisation</div>
+                                        <div class="text-sm text-muted-foreground">Interface claire, pas besoin d'être expert</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Accessible partout</div>
+                                        <div class="text-sm text-muted-foreground">Utilisable depuis n'importe où avec internet</div>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Fait pour vous</div>
+                                        <div class="text-sm text-muted-foreground">Créé exactement selon vos besoins</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="price-tag">
+                                <div class="price-amount">Sur devis</div>
+                                <div class="price-label">Prix fixe garanti</div>
+                            </div>
+                            
+                            <a href="#contact" class="btn-service">
+                                Parlons-en ensemble
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            
+                            <div class="service-examples mt-6">
+                                <div class="text-xs font-semibold text-muted-foreground mb-2">Exemples concrets :</div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="example-tag">📅 Planning RDV</span>
+                                    <span class="example-tag">🛒 Boutique en ligne</span>
+                                    <span class="example-tag">📊 Gestion stock</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Application Mobile -->
+                    <div class="service-card-v2 group">
+                        <div class="service-header">
+                            <div class="service-icon-large">
+                                <i class="fas fa-mobile-screen"></i>
+                            </div>
+                            <div class="service-label">Pour toujours plus proche</div>
+                        </div>
+                        
+                        <div class="service-body">
+                            <h3 class="text-2xl font-display font-bold mb-3">Votre App mobile</h3>
+                            <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                                Une <strong>application dans la poche</strong> de vos clients. Comme l'app de votre banque, mais pour votre activité.
+                            </p>
+                            
+                            <div class="benefit-box mb-6">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold mb-1">Pour qui ?</div>
+                                    <p class="text-sm text-muted-foreground">Entreprises visant une forte proximité client</p>
+                            </div>
+                        </div>
+                            
+                            <div class="space-y-3 mb-8">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">iPhone et Android</div>
+                                        <div class="text-sm text-muted-foreground">Fonctionne sur tous les smartphones</div>
+                                </div>
+                            </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Toujours disponible</div>
+                                        <div class="text-sm text-muted-foreground">Vos clients l'ont sous la main</div>
+                        </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Notifications</div>
+                                        <div class="text-sm text-muted-foreground">Restez en contact avec vos clients</div>
+                            </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <div>
+                                        <div class="font-medium">Support complet</div>
+                                        <div class="text-sm text-muted-foreground">Maintenance et mises à jour incluses</div>
+                                    </div>
+                        </div>
+                    </div>
+                    
+                            <div class="price-tag">
+                                <div class="price-amount">Sur devis</div>
+                                <div class="price-label">Prix fixe garanti</div>
+                            </div>
+                            
+                            <a href="#contact" class="btn-service">
+                                Parlons-en ensemble
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            
+                            <div class="service-examples mt-6">
+                                <div class="text-xs font-semibold text-muted-foreground mb-2">Exemples concrets :</div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="example-tag">🍕 Livraison food</span>
+                                    <span class="example-tag">🏋️ Coach sportif</span>
+                                    <span class="example-tag">🚗 Location</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="w-full md:w-1/2 md:pl-10" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative mx-auto max-w-xs sm:max-w-sm md:max-w-none">
-                        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl md:rounded-3xl transform rotate-3"></div>
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                             alt="Création de site web professionnel" 
-                             class="relative z-10 rounded-2xl md:rounded-3xl shadow-xl transform -rotate-3 hover:rotate-0 transition-all duration-500 w-full h-auto object-cover"
-                             loading="eager">
+                <!-- Reassurance Bar -->
+                <div class="mt-20">
+                    <div class="reassurance-bar">
+                        <div class="reassurance-item">
+                            <div class="reassurance-icon">
+                                <i class="fas fa-comments"></i>
+                    </div>
+                            <div>
+                                <div class="font-semibold">Pas sûr de ce dont vous avez besoin ?</div>
+                                <p class="text-sm text-muted-foreground">On vous guide gratuitement vers la meilleure solution</p>
+                            </div>
+                        </div>
+                        <div class="reassurance-divider"></div>
+                        <div class="reassurance-item">
+                            <div class="reassurance-icon">
+                                <i class="fas fa-shield-check"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Sans engagement</div>
+                                <p class="text-sm text-muted-foreground">Devis gratuit, aucune obligation d'achat</p>
+                            </div>
+                        </div>
+                        <div class="reassurance-divider"></div>
+                        <div class="reassurance-item">
+                            <div class="reassurance-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Réponse rapide</div>
+                                <p class="text-sm text-muted-foreground">On vous répond en moins de 24h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Simple Explanation -->
+                <div class="mt-20 text-center">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full mb-6">
+                        <i class="fas fa-info-circle text-primary"></i>
+                        <span class="text-sm font-medium">En clair</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-display font-bold mb-4">C'est quoi la différence ?</h3>
+                    <div class="max-w-3xl mx-auto text-left bg-white border border-border rounded-2xl p-8">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div>
+                                <div class="text-4xl mb-3">🏪</div>
+                                <div class="font-semibold mb-2">Site Vitrine</div>
+                                <p class="text-sm text-muted-foreground">Présenter votre activité, vos services, comment vous contacter. Comme une <strong>carte de visite digitale</strong> ultra-complète.</p>
+                            </div>
+                            <div>
+                                <div class="text-4xl mb-3">⚙️</div>
+                                <div class="font-semibold mb-2">Application Web</div>
+                                <p class="text-sm text-muted-foreground">Faire des actions : réserver, commander, gérer. C'est un <strong>outil de travail</strong> accessible depuis n'importe quel navigateur.</p>
+                            </div>
+                            <div>
+                                <div class="text-4xl mb-3">📱</div>
+                                <div class="font-semibold mb-2">App Mobile</div>
+                                <p class="text-sm text-muted-foreground">Pareil qu'une app web, mais <strong>téléchargeable</strong> depuis l'App Store ou Google Play. Toujours sous la main.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-16 md:py-24 bg-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full filter blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/5 to-secondary/5 rounded-full filter blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1.5 bg-indigo-100 text-primary rounded-full text-sm font-semibold mb-4">Nos Services</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Des solutions digitales complètes à prix fixe</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Pour le prix d'une simple publicité, offrez-vous une présence en ligne qui va générer des clients sur le long terme.
-                </p>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-32 bg-secondary/30">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="section-header text-center mb-20">
+                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Notre travail</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Projets récents</h2>
+                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Découvrez quelques-unes de nos réalisations</p>
+            </div>
+
+                <!-- Portfolio Grid -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item group">
+                        <div class="portfolio-image">
+                            <img src="images/five.png" alt="FiveApp" class="w-full h-full object-cover">
+                            <div class="portfolio-overlay">
+                                <a href="https://fiveapp.fr" target="_blank" class="btn-primary">
+                                    Voir le projet
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                            <div class="flex gap-2 mb-3">
+                                <span class="badge">Application Web</span>
+                                <span class="badge">Mobile</span>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold mb-2">FiveApp</h3>
+                            <p class="text-muted-foreground">
+                            Application web de création et d'organisation de matchs de foot à 5.
+                        </p>
+                    </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-custom overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-8">
-                        <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center mb-6">
-                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
+                    <!-- Project 2 -->
+                    <div class="portfolio-item group">
+                        <div class="portfolio-image">
+                            <img src="images/cake.png" alt="Cake Beauty" class="w-full h-full object-cover">
+                            <div class="portfolio-overlay">
+                                <a href="https://cakebeauty.shop" target="_blank" class="btn-primary">
+                                    Voir le projet
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
                         </div>
-                        <h3 class="text-xl font-bold text-dark mb-3">Site Vitrine</h3>
-                        <p class="text-gray-600 mb-6">
-                            Un site web professionnel pour présenter votre activité et attirer de nouveaux clients. Livré en 7 jours, prêt à l'emploi.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-primary">500€</span>
-                            <span class="text-gray-500 text-sm">Forfait tout compris</span>
+                    </div>
+                    <div class="p-6">
+                            <div class="flex gap-2 mb-3">
+                                <span class="badge">E-commerce</span>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold mb-2">Cake Beauty Dubai</h3>
+                            <p class="text-muted-foreground">
+                                Site de commande de desserts avec gestion clients intégrée.
+                            </p>
                         </div>
-                        <div class="mt-6 pt-6 border-t border-gray-100">
-                            <ul class="space-y-2">
-                                <li class="flex items-center text-gray-700">
-                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Design responsive moderne
+                </div>
+
+                    <!-- Project 3 -->
+                    <div class="portfolio-item group">
+                        <div class="portfolio-image">
+                            <img src="images/carokaz.png" alt="Carokaz" class="w-full h-full object-cover">
+                            <div class="portfolio-overlay">
+                                <a href="https://carokaz.fr" target="_blank" class="btn-primary">
+                                    Voir le projet
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                            <div class="flex gap-2 mb-3">
+                                <span class="badge">Application Mobile</span>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold mb-2">Carokaz</h3>
+                            <p class="text-muted-foreground">
+                                Application pour trouver les meilleures offres auto d'occasion.
+                            </p>
+                </div>
+            </div>
+
+                    <!-- CTA Card -->
+                    <div class="portfolio-item cta-card flex items-center justify-center">
+                        <div class="text-center p-12">
+                            <div class="text-6xl mb-6">✨</div>
+                            <h3 class="text-3xl font-display font-bold mb-4">Votre projet ici</h3>
+                            <p class="text-muted-foreground mb-8">Prêt à créer quelque chose d'extraordinaire ensemble ?</p>
+                            <a href="#contact" class="btn-primary">
+                                Commençons
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section with Scrollytelling -->
+    <section id="process" class="py-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="section-header text-center mb-20">
+                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Comment ça marche</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Notre processus</h2>
+                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Un workflow éprouvé pour des résultats exceptionnels</p>
+                </div>
+                
+                <!-- Process Steps -->
+                <div class="space-y-24">
+                    <!-- Step 1 -->
+                    <div class="process-step grid md:grid-cols-2 gap-12 items-center">
+                        <div class="process-content">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">01</div>
+                                <div class="step-line"></div>
+                            </div>
+                            <h3 class="text-3xl font-display font-bold mb-4">Découverte & Stratégie</h3>
+                            <p class="text-lg text-muted-foreground mb-6">
+                                Nous commençons par comprendre votre vision, vos objectifs et votre audience. Cette phase nous permet de définir la meilleure stratégie pour votre projet.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Analyse de vos besoins</span>
                                 </li>
-                                <li class="flex items-center text-gray-700">
-                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Optimisé pour le référencement
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Étude de la concurrence</span>
                                 </li>
-                                <li class="flex items-center text-gray-700">
-                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Formulaire de contact
-                                </li>
-                                <li class="flex items-center text-gray-700">
-                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Livraison en 7 jours
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Définition des objectifs</span>
                                 </li>
                             </ul>
                         </div>
+                        <div class="process-visual">
+                            <div class="visual-card">
+                                <i class="fas fa-lightbulb text-6xl gradient-text mb-4"></i>
+                                <div class="text-sm text-muted-foreground">Phase 1</div>
                     </div>
-                    <div class="px-8 pb-8">
-                        <a href="#contact" class="block w-full gradient-bg text-white py-3 rounded-lg text-center font-medium hover:shadow-glow transition-all duration-300">
-                            Obtenir mon site en 7 jours
-                        </a>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-2xl shadow-premium overflow-hidden card-hover relative group transform scale-105">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-premium"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-premium/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute top-6 right-6">
-                        <span class="inline-block px-3 py-1 bg-gradient-to-r from-primary to-premium text-white text-xs font-semibold rounded-full">Populaire</span>
+                    <!-- Step 2 -->
+                    <div class="process-step grid md:grid-cols-2 gap-12 items-center">
+                        <div class="process-visual md:order-first">
+                            <div class="visual-card">
+                                <i class="fas fa-palette text-6xl gradient-text mb-4"></i>
+                                <div class="text-sm text-muted-foreground">Phase 2</div>
                     </div>
-                    <div class="p-8 relative z-10">
-                        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
-                            <i class="fas fa-code text-primary text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-dark mb-4">Applications Web</h3>
-                        <p class="text-gray-600 mb-6">
-                            Des outils en ligne simples et efficaces pour améliorer votre travail quotidien.
-                        </p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center">
-                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-check text-green-500 text-xs"></i>
+                        <div class="process-content">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">02</div>
+                                <div class="step-line"></div>
                                 </div>
-                                <span class="text-gray-700">Interface simple</span>
+                            <h3 class="text-3xl font-display font-bold mb-4">Design & Prototypage</h3>
+                            <p class="text-lg text-muted-foreground mb-6">
+                                Nous créons des maquettes interactives pour visualiser le résultat final. Vous pouvez ainsi valider le design avant le développement.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Maquettes haute-fidélité</span>
                             </li>
-                            <li class="flex items-center">
-                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-check text-green-500 text-xs"></i>
-                                </div>
-                                <span class="text-gray-700">Fonctions sur mesure</span>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Prototypes interactifs</span>
                             </li>
-                            <li class="flex items-center">
-                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-check text-green-500 text-xs"></i>
-                                </div>
-                                <span class="text-gray-700">Protection des données</span>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Validation avec vous</span>
                             </li>
                         </ul>
-                        <div class="pt-6 border-t border-gray-100">
-                            <div class="flex items-end justify-between">
-                                <div>
-                                    <p class="text-primary font-bold text-3xl">500€</p>
-                                    <p class="text-gray-500 text-sm">Prix fixe, sans surprise</p>
                                 </div>
-                                <a href="#contact" class="gradient-bg text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-glow">
-                                    En savoir plus
-                                </a>
                             </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step grid md:grid-cols-2 gap-12 items-center">
+                        <div class="process-content">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">03</div>
+                                <div class="step-line"></div>
                         </div>
+                            <h3 class="text-3xl font-display font-bold mb-4">Développement</h3>
+                            <p class="text-lg text-muted-foreground mb-6">
+                                Notre équipe transforme le design en code propre et performant. Nous utilisons les dernières technologies pour garantir qualité et rapidité.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Code propre et optimisé</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Tests rigoureux</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Performance maximale</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="process-visual">
+                            <div class="visual-card">
+                                <i class="fas fa-code text-6xl gradient-text mb-4"></i>
+                                <div class="text-sm text-muted-foreground">Phase 3</div>
+                            </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-custom overflow-hidden card-hover relative group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-premium/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="p-8 relative z-10">
-                        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
-                            <i class="fas fa-mobile-alt text-primary text-2xl"></i>
+                    <!-- Step 4 -->
+                    <div class="process-step grid md:grid-cols-2 gap-12 items-center">
+                        <div class="process-visual md:order-first">
+                            <div class="visual-card">
+                                <i class="fas fa-rocket text-6xl gradient-text mb-4"></i>
+                                <div class="text-sm text-muted-foreground">Phase 4</div>
                         </div>
-                        <h3 class="text-2xl font-bold text-dark mb-4">Applications Mobiles</h3>
-                        <p class="text-gray-600 mb-6">
-                            Des applications pour smartphones iPhone et Android, adaptées à vos besoins.
-                        </p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center">
-                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-check text-green-500 text-xs"></i>
                                 </div>
-                                <span class="text-gray-700">iPhone et Android</span>
+                        <div class="process-content">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="step-number">04</div>
+                                <div class="step-line"></div>
+                                </div>
+                            <h3 class="text-3xl font-display font-bold mb-4">Lancement & Suivi</h3>
+                            <p class="text-lg text-muted-foreground mb-6">
+                                Nous mettons votre projet en ligne et assurons un suivi pour garantir son succès. Vous bénéficiez également de notre support.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Mise en ligne sécurisée</span>
                             </li>
-                            <li class="flex items-center">
-                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-check text-green-500 text-xs"></i>
-                                </div>
-                                <span class="text-gray-700">Design facile à utiliser</span>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-check text-green-500 text-xs"></i>
-                                </div>
-                                <span class="text-gray-700">Mises à jour incluses</span>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Formation incluse</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Support 3 mois offert</span>
                             </li>
                         </ul>
-                        <div class="pt-6 border-t border-gray-100">
-                            <div class="flex items-end justify-between">
-                                <div>
-                                    <p class="text-primary font-bold text-3xl">Sur devis</p>
-                                    <p class="text-gray-500 text-sm">Prix fixe, sans surprise</p>
                                 </div>
-                                <a href="#contact" class="bg-primary/10 hover:bg-primary text-primary hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
-                                    En savoir plus
-                                </a>
                             </div>
                         </div>
                     </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-32 bg-secondary/30 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        
+        <div class="container mx-auto px-6 lg:px-8 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <!-- Header with social proof -->
+                <div class="text-center mb-16">
+                    <div class="flex justify-center items-center gap-8 mb-8 flex-wrap">
+                        <div class="trust-badge">
+                            <div class="text-3xl font-display font-bold gradient-text">50+</div>
+                            <div class="text-sm text-muted-foreground mt-1">Projets réussis</div>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="flex items-center gap-1 mb-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <div class="text-sm text-muted-foreground">Note moyenne 5/5</div>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="text-3xl font-display font-bold gradient-text">100%</div>
+                            <div class="text-sm text-muted-foreground mt-1">Clients satisfaits</div>
                 </div>
             </div>
             
-            <div class="text-center mt-16" data-aos="fade-up">
-                <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-                    Soyez en ligne dès la semaine prochaine en rejoignant dès aujourd'hui notre programme Bungee. Nombre de projets limités chaque mois !
-                </p>
-                <a href="#contact" class="inline-block gradient-bg text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105">
-                    Demandez votre devis gratuit maintenant
-                </a>
+                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Témoignages clients</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">
+                        Nos clients témoignent de notre excellence
+                    </h2>
+                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        Rejoignez les entreprises qui nous font confiance pour transformer leur présence digitale
+                    </p>
             </div>
+                
+                <!-- Featured testimonial -->
+                <div class="mb-16">
+                    <div class="testimonial-featured">
+                        <div class="absolute -top-6 -left-6 w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white shadow-xl">
+                            <i class="fas fa-quote-left text-3xl"></i>
         </div>
-    </section>
+                        
+                        <div class="grid md:grid-cols-3 gap-8 items-center">
+                            <div class="md:col-span-2">
+                                <div class="flex gap-1 mb-6">
+                                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                </div>
+                                <p class="text-2xl md:text-3xl font-display font-semibold text-foreground mb-8 leading-relaxed">
+                                    "Bungee a parfaitement compris nos besoins et a développé une application web qui facilite grandement l'organisation de nos matchs. L'interface est intuitive et nos utilisateurs l'adorent !"
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                                        TH
+            </div>
+                                    <div>
+                                        <div class="font-display font-bold text-lg">Thomas Hanzolone</div>
+                                        <div class="text-muted-foreground">CEO & Fondateur</div>
+                                        <div class="flex items-center gap-2 mt-1">
+                                            <span class="text-sm font-semibold text-primary">Five App</span>
+                                            <span class="text-muted-foreground">•</span>
+                                            <a href="https://fiveapp.fr" target="_blank" class="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                                <i class="fas fa-external-link-alt mr-1"></i>
+                                                fiveapp.fr
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                            <div class="hidden md:block">
+                                <div class="stats-card">
+                                    <div class="mb-6">
+                                        <div class="text-4xl font-display font-bold gradient-text mb-2">+200%</div>
+                                        <div class="text-sm text-muted-foreground">Augmentation des inscriptions</div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div class="text-4xl font-display font-bold gradient-text mb-2">7j</div>
+                                        <div class="text-sm text-muted-foreground">Délai de livraison</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-4xl font-display font-bold gradient-text mb-2">4.9/5</div>
+                                        <div class="text-sm text-muted-foreground">Satisfaction utilisateurs</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <section id="portfolio" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-indigo-50 to-blue-50 relative overflow-hidden">
-        <div class="absolute top-20 right-20 w-72 h-72 bg-white rounded-full opacity-70 filter blur-3xl"></div>
-        <div class="absolute bottom-20 left-20 w-72 h-72 bg-indigo-100 rounded-full opacity-70 filter blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1.5 bg-indigo-100 text-primary rounded-full text-sm font-semibold mb-4">Portfolio</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Nos réalisations</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Découvrez quelques-uns des projets que nous avons réalisés pour nos clients.
-                </p>
+                <!-- Grid testimonials -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="testimonial-card-premium">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="flex gap-1">
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                            </div>
+                            <div class="verified-badge">
+                                <i class="fas fa-check-circle mr-1"></i>
+                                Vérifié
+                        </div>
+                    </div>
+                        
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        
+                        <p class="text-lg text-foreground mb-8 leading-relaxed">
+                            "Notre site de commande en ligne a transformé notre activité. Les commandes sont maintenant beaucoup plus simples à gérer et nos clients apprécient la facilité d'utilisation. Le ROI a été immédiat !"
+                        </p>
+                        
+                        <div class="flex items-center gap-4 pt-6 border-t border-border">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                RH
+                            </div>
+                            <div>
+                                <div class="font-display font-bold text-lg">Romie H.</div>
+                                <div class="text-sm text-muted-foreground">Gérante</div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-sm font-semibold text-primary">Cake Beauty</span>
+                                    <span class="text-muted-foreground">•</span>
+                                    <span class="text-sm text-muted-foreground">E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="result-badge mt-6">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            +150% de commandes en ligne
+                            </div>
+                        </div>
+                    
+                    <div class="testimonial-card-premium">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="flex gap-1">
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                                <i class="fas fa-star text-yellow-400 text-lg"></i>
+                    </div>
+                            <div class="verified-badge">
+                                <i class="fas fa-check-circle mr-1"></i>
+                                Vérifié
+                            </div>
+                        </div>
+                        
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        
+                        <p class="text-lg text-foreground mb-8 leading-relaxed">
+                            "L'application Carokaz nous permet de proposer une expérience unique à nos utilisateurs dans leur recherche de véhicules d'occasion. Un vrai plus pour notre service. L'équipe Bungee est très professionnelle !"
+                        </p>
+                        
+                        <div class="flex items-center gap-4 pt-6 border-t border-border">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-green-400 to-emerald-400 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                TC
+                        </div>
+                            <div>
+                                <div class="font-display font-bold text-lg">Thomas Carreton</div>
+                                <div class="text-sm text-muted-foreground">Co-fondateur</div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-sm font-semibold text-primary">Carokaz</span>
+                                    <span class="text-muted-foreground">•</span>
+                                    <span class="text-sm text-muted-foreground">Application Mobile</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-custom overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative overflow-hidden img-zoom">
-                        <img src="images/five.png" 
-                             alt="Site e-commerce pour une boutique locale" 
-                             class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                            <div class="p-6">
-                                <a href="https://fiveapp.fr" 
-                                   class="inline-block text-white bg-primary/90 hover:bg-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 md:transform md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
-                                    Voir le projet
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">FiveApp</h3>
-                        <p class="text-gray-600 mb-4">
-                            Application web de création et d'organisation de matchs de foot à 5.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-indigo-100 text-primary text-xs font-medium rounded-full">Site Web</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">Application Mobile</span>
+                        <div class="result-badge mt-6">
+                            <i class="fas fa-users mr-2"></i>
+                            +5000 utilisateurs actifs
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-white rounded-xl shadow-custom overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative overflow-hidden img-zoom">
-                        <img src="images/cake.png" 
-                             alt="Application de gestion pour un restaurant" 
-                             class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                            <div class="p-6">
-                                <a href="https://cakebeauty.shop" class="text-white bg-primary/90 hover:bg-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
-                                    Voir le projet
-                                </a>
+                
+                <!-- Trust indicators -->
+                <div class="mt-20 pt-16 border-t border-border">
+                    <div class="grid md:grid-cols-4 gap-8 text-center">
+                        <div class="trust-indicator">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-2xl gradient-text"></i>
                             </div>
+                            <div class="font-semibold mb-2">Garantie qualité</div>
+                            <div class="text-sm text-muted-foreground">Support 3 mois inclus</div>
                         </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Cake Beauty Dubai</h3>
-                        <p class="text-gray-600 mb-4">
-                            Site Web de commande de desserts réalisé pour l'entreprise Cake Beauty à Audincourt, afin de faciliter la gestion de ses clients et de leurs commandes.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-indigo-100 text-primary text-xs font-medium rounded-full">Site Web</span>
+                        
+                        <div class="trust-indicator">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
+                                <i class="fas fa-rocket text-2xl gradient-text"></i>
+                            </div>
+                            <div class="font-semibold mb-2">Livraison rapide</div>
+                            <div class="text-sm text-muted-foreground">Projet en ligne en 7 jours</div>
+                        </div>
+                        
+                        <div class="trust-indicator">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
+                                <i class="fas fa-award text-2xl gradient-text"></i>
+                            </div>
+                            <div class="font-semibold mb-2">Expertise reconnue</div>
+                            <div class="text-sm text-muted-foreground">+5 ans d'expérience</div>
+                        </div>
+                        
+                        <div class="trust-indicator">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
+                                <i class="fas fa-handshake text-2xl gradient-text"></i>
+                            </div>
+                            <div class="font-semibold mb-2">Partenariat durable</div>
+                            <div class="text-sm text-muted-foreground">Accompagnement personnalisé</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-white rounded-xl shadow-custom overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative overflow-hidden img-zoom">
-                        <img src="images/carokaz.png" 
-                             alt="Application mobile pour un SaaS" 
-                             class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                            <div class="p-6">
-                                <a href="https://carokaz.fr" class="text-white bg-primary/90 hover:bg-primary px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
-                                    Voir le projet
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Carokaz</h3>
-                        <p class="text-gray-600 mb-4">
-                            Application mobile permettant de trouver les meilleures offres auto d'occasion en France.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-indigo-100 text-primary text-xs font-medium rounded-full">App Mobile</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
-                <a href="#contact" class="inline-block gradient-bg text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+                
+                <!-- CTA -->
+                <div class="mt-16 text-center">
+                    <p class="text-lg text-muted-foreground mb-6">Rejoignez nos clients satisfaits</p>
+                    <a href="#contact" class="btn-primary text-lg px-8 py-4 inline-flex items-center">
                     Discutons de votre projet
+                        <i class="fas fa-arrow-right ml-2"></i>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="temoignages" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-indigo-50 to-blue-50 relative overflow-hidden">
-        <div class="absolute top-20 right-20 w-72 h-72 bg-white rounded-full opacity-70 filter blur-3xl"></div>
-        <div class="absolute bottom-20 left-20 w-72 h-72 bg-indigo-100 rounded-full opacity-70 filter blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1.5 bg-indigo-100 text-primary rounded-full text-sm font-semibold mb-4">Témoignages</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Ce que nos clients disent</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Découvrez les retours d'expérience de nos clients satisfaits.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-custom transform transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 flex">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "Locqmen a parfaitement compris nos besoins et a développé une application web qui facilite grandement l'organisation de nos matchs de foot. L'interface est intuitive et nos utilisateurs l'adorent !"
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-premium flex items-center justify-center text-white mr-4">
-                            <span class="font-bold">TH</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-dark">Thomas Hanzolone</h4>
-                            <p class="text-gray-500 text-sm">Five App</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-custom transform transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 flex">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "Notre site de commande en ligne a transformé notre activité. Les commandes sont maintenant beaucoup plus simples à gérer et nos clients apprécient la facilité d'utilisation."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-premium to-gold flex items-center justify-center text-white mr-4">
-                            <span class="font-bold">RH</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-dark">Romie H.</h4>
-                            <p class="text-gray-500 text-sm">Cake Beauty</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-custom transform transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 flex">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "L'application Carokaz nous permet de proposer une expérience unique à nos utilisateurs dans leur recherche de véhicules d'occasion. Un vrai plus pour notre service !"
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-white mr-4">
-                            <span class="font-bold">TC</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-dark">Thomas Carreton</h4>
-                            <p class="text-gray-500 text-sm">Carokaz</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="apropos" class="py-16 md:py-24 bg-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-premium to-secondary"></div>
-        <div class="absolute -top-40 -right-40 w-80 h-80 bg-indigo-50 rounded-full filter blur-3xl opacity-70"></div>
-        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-50 rounded-full filter blur-3xl opacity-70"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                        alt="Entrepreneur créatif au travail" class="rounded-xl shadow-xl transform hover:scale-105 transition-transform duration-500">
+    <!-- Why Bungee Section -->
+    <section id="why-bungee" class="py-32 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="section-header text-center mb-20">
+                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Nos avantages</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Pourquoi choisir Bungee ?</h2>
+                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        Nous ne sommes pas une agence comme les autres. Voici ce qui fait notre différence.
+                    </p>
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">À propos de Bungee</h2>
-                    <p class="text-gray-600 mb-6">
-                        Basée à Montbéliard, Bungee est une équipe passionnée qui crée des sites internet et des applications. Notre mission : rendre le numérique accessible à tous, avec des solutions de qualité à prix fixe.
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        Notre équipe combine créativité et savoir-faire technique pour donner vie à vos projets, qu'il s'agisse d'un site vitrine, d'un outil en ligne ou d'une application pour smartphone.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-check text-primary"></i>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Advantage 1 -->
+                    <div class="advantage-card group">
+                        <div class="advantage-icon-wrapper">
+                            <div class="advantage-icon">
+                                <i class="fas fa-bolt text-3xl"></i>
                             </div>
-                            <span class="text-gray-700">Prix transparent</span>
                         </div>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-clock text-primary"></i>
-                            </div>
-                            <span class="text-gray-700">Délais respectés</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-users text-primary"></i>
-                            </div>
-                            <span class="text-gray-700">Équipe experte</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-headset text-primary"></i>
-                            </div>
-                            <span class="text-gray-700">Support réactif</span>
+                        <h3 class="text-xl font-display font-bold mb-3">Rapidité d'exécution</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Votre site en ligne en 7 jours. Pas de mois d'attente, nous livrons rapidement sans compromettre la qualité.
+                        </p>
+                        <div class="advantage-number">01</div>
+            </div>
+
+                    <!-- Advantage 2 -->
+                    <div class="advantage-card group">
+                        <div class="advantage-icon-wrapper">
+                            <div class="advantage-icon">
+                                <i class="fas fa-tag text-3xl"></i>
                         </div>
                     </div>
-                    <a href="#contact"
-                        class="bg-primary text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-600 transition-all duration-300 inline-block">
+                        <h3 class="text-xl font-display font-bold mb-3">Prix transparent</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            500€ tout compris. Pas de frais cachés, pas de surprises. Vous savez exactement ce que vous payez.
+                    </p>
+                        <div class="advantage-number">02</div>
+                        </div>
+                    
+                    <!-- Advantage 3 -->
+                    <div class="advantage-card group">
+                        <div class="advantage-icon-wrapper">
+                            <div class="advantage-icon">
+                                <i class="fas fa-palette text-3xl"></i>
+                        </div>
+                    </div>
+                        <h3 class="text-xl font-display font-bold mb-3">Design moderne</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Des designs contemporains qui convertissent. Nous suivons les dernières tendances du web design.
+                        </p>
+                        <div class="advantage-number">03</div>
+                </div>
+                
+                    <!-- Advantage 4 -->
+                    <div class="advantage-card group">
+                        <div class="advantage-icon-wrapper">
+                            <div class="advantage-icon">
+                                <i class="fas fa-mobile-alt text-3xl"></i>
+                        </div>
+                    </div>
+                        <h3 class="text-xl font-display font-bold mb-3">100% Responsive</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Parfait sur tous les appareils. Mobile, tablette, desktop - votre site s'adapte automatiquement.
+                    </p>
+                        <div class="advantage-number">04</div>
+                        </div>
+                    
+                    <!-- Advantage 5 -->
+                    <div class="advantage-card group">
+                        <div class="advantage-icon-wrapper">
+                            <div class="advantage-icon">
+                                <i class="fas fa-headset text-3xl"></i>
+                        </div>
+                    </div>
+                        <h3 class="text-xl font-display font-bold mb-3">Support dédié</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            3 mois de support offert. Une question ? Un bug ? Nous sommes là pour vous aider rapidement.
+                        </p>
+                        <div class="advantage-number">05</div>
+                </div>
+                
+                    <!-- Advantage 6 -->
+                    <div class="advantage-card group">
+                        <div class="advantage-icon-wrapper">
+                            <div class="advantage-icon">
+                                <i class="fas fa-rocket text-3xl"></i>
+                        </div>
+                    </div>
+                        <h3 class="text-xl font-display font-bold mb-3">Performance optimale</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Sites ultra-rapides et optimisés SEO. Vos visiteurs ne partent pas, Google vous adore.
+                    </p>
+                        <div class="advantage-number">06</div>
+                        </div>
+                        </div>
+                
+                <!-- CTA Banner -->
+                <div class="mt-20">
+                    <div class="cta-banner relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-primary/80"></div>
+                        <div class="absolute inset-0 opacity-10">
+                            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+                        </div>
+                        <div class="relative z-10 text-center py-16 px-6">
+                            <h3 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                                Prêt à propulser votre activité ?
+                            </h3>
+                            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                                Rejoignez les entrepreneurs qui ont choisi Bungee pour leur présence digitale
+                            </p>
+                            <a href="#contact" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105">
+                                Démarrer mon projet maintenant
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-32 bg-secondary/30 relative overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="section-header text-center mb-16">
+                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">FAQ</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Questions fréquentes</h2>
+                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                        Vous avez des questions ? Nous avons les réponses.
+                    </p>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question w-full text-left">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold pr-8">Pourquoi seulement 500€ pour un site web ?</h3>
+                                <i class="fas fa-chevron-down faq-icon transition-transform"></i>
+                </div>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-muted-foreground leading-relaxed">
+                                Nous avons optimisé notre processus de création pour vous offrir un site professionnel à un prix accessible. Nous utilisons des technologies modernes et un workflow éprouvé qui nous permet de livrer rapidement sans sacrifier la qualité. Notre mission est de rendre le digital accessible à tous les entrepreneurs.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question w-full text-left">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold pr-8">Qu'est-ce qui est inclus dans le forfait 500€ ?</h3>
+                                <i class="fas fa-chevron-down faq-icon transition-transform"></i>
+                            </div>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-muted-foreground leading-relaxed">
+                                Le forfait inclut : design moderne et responsive, jusqu'à 5 pages, formulaire de contact fonctionnel, optimisation SEO de base, hébergement du premier mois, 3 mois de support technique, et 2 révisions de design. C'est un package complet pour démarrer votre présence en ligne !
+                            </p>
+                            </div>
+                        </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question w-full text-left">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold pr-8">Combien de temps prend vraiment la livraison ?</h3>
+                                <i class="fas fa-chevron-down faq-icon transition-transform"></i>
+                            </div>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-muted-foreground leading-relaxed">
+                                7 jours ouvrés en moyenne, du paiement de l'acompte à la mise en ligne. Ce délai peut varier selon la complexité de votre projet et la rapidité à laquelle vous nous fournissez vos contenus (textes, images, logo). Plus vous êtes réactif, plus c'est rapide !
+                            </p>
+                        </div>
+                            </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question w-full text-left">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold pr-8">Puis-je modifier mon site après la livraison ?</h3>
+                                <i class="fas fa-chevron-down faq-icon transition-transform"></i>
+                        </div>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-muted-foreground leading-relaxed">
+                                Absolument ! Nous vous formons à l'utilisation de votre site lors de la livraison. Vous pourrez modifier les textes et images facilement. Pour des modifications plus importantes (ajout de pages, nouvelles fonctionnalités), nous proposons un service de maintenance à partir de 50€/mois.
+                            </p>
+                            </div>
+                        </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question w-full text-left">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold pr-8">Et si je ne suis pas satisfait du résultat ?</h3>
+                                <i class="fas fa-chevron-down faq-icon transition-transform"></i>
+                    </div>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-muted-foreground leading-relaxed">
+                                Votre satisfaction est notre priorité. Nous incluons 2 révisions de design dans notre forfait. Si malgré cela vous n'êtes pas satisfait, nous travaillerons ensemble jusqu'à ce que le résultat vous convienne. Notre taux de satisfaction client est de 100% - et nous comptons bien le maintenir !
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question w-full text-left">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold pr-8">Proposez-vous un service de référencement SEO ?</h3>
+                                <i class="fas fa-chevron-down faq-icon transition-transform"></i>
+                            </div>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-muted-foreground leading-relaxed">
+                                Oui ! Le forfait de base inclut une optimisation SEO technique (vitesse, meta tags, structure). Pour un référencement avancé (stratégie de contenu, netlinking, optimisation continue), nous proposons un service dédié à partir de 200€/mois. Contactez-nous pour en discuter !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <p class="text-muted-foreground mb-4">Vous avez d'autres questions ?</p>
+                    <a href="#contact" class="btn-primary inline-flex items-center gap-2">
                         Contactez-nous
+                        <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-indigo-50 to-blue-50 relative overflow-hidden">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1.5 bg-indigo-100 text-primary rounded-full text-sm font-semibold mb-4">Contact</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Prêt à lancer votre site en 7 jours ?</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Remplissez le formulaire ci-dessous pour obtenir votre devis gratuit. Nous vous répondrons dans les 24h.
-                </p>
+    <!-- Contact Section - Conversational Quiz -->
+    <section id="contact" class="py-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="section-header text-center mb-16">
+                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Contact</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Parlons de votre projet</h2>
+                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">3 questions rapides pour mieux vous aider (30 secondes)</p>
             </div>
             
-            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-xl p-6 md:p-8" data-aos="fade-up">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-gray-700 mb-2">Nom</label>
-                            <input type="text" id="name" name="name" 
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target"
-                                required data-error="Veuillez entrer votre nom">
-                            <div class="text-red-500 text-sm mt-1 hidden error-message"></div>
+                <!-- Conversational Quiz Container -->
+                <div class="contact-card relative">
+                    <!-- Progress Bar - shadcn style -->
+                    <div class="mb-8">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm font-medium text-muted-foreground" id="progress-text">Question 1 sur 4</span>
+                            <span class="text-sm font-semibold" style="color: hsl(222.2 47.4% 11.2%);" id="progress-percent">25%</span>
                         </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target"
-                                required>
+                        <div class="w-full h-2 bg-secondary rounded-full overflow-hidden">
+                            <div id="progress-bar" class="h-full transition-all duration-500 ease-out" style="width: 25%"></div>
                         </div>
-                        <div>
-                            <label for="phone" class="block text-gray-700 mb-2">Téléphone</label>
-                            <input type="tel" id="phone" name="phone"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target">
                         </div>
-                        <div>
-                            <label for="service" class="block text-gray-700 mb-2">Service souhaité</label>
-                            <select id="service" name="service"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target">
-                                <option value="">Sélectionnez un service</option>
-                                <option value="site-web">Site Web</option>
-                                <option value="application-web">Application Web</option>
-                                <option value="application-mobile">Application Mobile</option>
-                                <option value="autre">Autre</option>
-                            </select>
+                        
+                    <!-- Quiz Steps -->
+                    <div id="quiz-container">
+                        <!-- Step 1: Service Type -->
+                        <div class="quiz-step active" data-step="1">
+                            <div class="mb-8">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span class="text-4xl leading-none">🎯</span>
+                                    <h3 class="text-2xl font-display font-bold" style="color: hsl(222.2 47.4% 11.2%);">
+                                        Quel type de projet avez-vous ?
+                                    </h3>
+                                </div>
+                                <p class="text-muted-foreground" style="font-size: 1rem;">Cela nous aide à mieux vous conseiller</p>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <button type="button" class="quiz-option" data-value="site-vitrine" data-next="2">
+                                    <div class="quiz-option-icon">🏪</div>
+                                    <div class="quiz-option-title">Site Vitrine</div>
+                                    <div class="quiz-option-desc">Présenter mon activité en ligne</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="application-web" data-next="2">
+                                    <div class="quiz-option-icon">⚙️</div>
+                                    <div class="quiz-option-title">Application Web</div>
+                                    <div class="quiz-option-desc">Outil personnalisé pour mon business</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="application-mobile" data-next="2">
+                                    <div class="quiz-option-icon">📱</div>
+                                    <div class="quiz-option-title">Application Mobile</div>
+                                    <div class="quiz-option-desc">App iOS & Android</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="pas-sur" data-next="2">
+                                    <div class="quiz-option-icon">💭</div>
+                                    <div class="quiz-option-title">Je ne sais pas encore</div>
+                                    <div class="quiz-option-desc">J'ai besoin de conseils</div>
+                                </button>
+                            </div>
                         </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent touch-target"
-                                required></textarea>
+
+                        <!-- Step 2: Budget -->
+                        <div class="quiz-step" data-step="2">
+                            <div class="mb-8">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span class="text-4xl leading-none">💰</span>
+                                    <h3 class="text-2xl font-display font-bold" style="color: hsl(222.2 47.4% 11.2%);">
+                                        Quel est votre budget ?
+                                    </h3>
+                                </div>
+                                <p class="text-muted-foreground" style="font-size: 1rem;">Pour vous proposer la meilleure solution</p>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <button type="button" class="quiz-option" data-value="500" data-next="3">
+                                    <div class="quiz-option-icon">💵</div>
+                                    <div class="quiz-option-title">Environ 500€</div>
+                                    <div class="quiz-option-desc">Site vitrine essentiel</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="500-2000" data-next="3">
+                                    <div class="quiz-option-icon">💳</div>
+                                    <div class="quiz-option-title">500€ - 2 000€</div>
+                                    <div class="quiz-option-desc">Site avec fonctionnalités avancées</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="2000-5000" data-next="3">
+                                    <div class="quiz-option-icon">💎</div>
+                                    <div class="quiz-option-title">2 000€ - 5 000€</div>
+                                    <div class="quiz-option-desc">Application web sur-mesure</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="5000+" data-next="3">
+                                    <div class="quiz-option-icon">🚀</div>
+                                    <div class="quiz-option-title">Plus de 5 000€</div>
+                                    <div class="quiz-option-desc">Projet d'envergure</div>
+                                </button>
+                            </div>
+                            <button type="button" class="quiz-back mt-6" onclick="quizGoToStep(1)">
+                                <i class="fas fa-arrow-left mr-2"></i> Retour
+                            </button>
+                        </div>
+                        
+                        <!-- Step 3: Timeline -->
+                        <div class="quiz-step" data-step="3">
+                            <div class="mb-8">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span class="text-4xl leading-none">⏰</span>
+                                    <h3 class="text-2xl font-display font-bold" style="color: hsl(222.2 47.4% 11.2%);">
+                                        Quand souhaitez-vous démarrer ?
+                                    </h3>
+                                </div>
+                                <p class="text-muted-foreground" style="font-size: 1rem;">Pour planifier au mieux votre projet</p>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <button type="button" class="quiz-option" data-value="urgent" data-next="4">
+                                    <div class="quiz-option-icon">🔥</div>
+                                    <div class="quiz-option-title">Le plus vite possible</div>
+                                    <div class="quiz-option-desc">J'ai besoin d'une solution rapide</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="1-2-semaines" data-next="4">
+                                    <div class="quiz-option-icon">📅</div>
+                                    <div class="quiz-option-title">Dans 1-2 semaines</div>
+                                    <div class="quiz-option-desc">Je me prépare à démarrer</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="1-mois" data-next="4">
+                                    <div class="quiz-option-icon">🗓️</div>
+                                    <div class="quiz-option-title">Dans 1 mois</div>
+                                    <div class="quiz-option-desc">Je planifie à moyen terme</div>
+                                </button>
+                                <button type="button" class="quiz-option" data-value="exploration" data-next="4">
+                                    <div class="quiz-option-icon">🔍</div>
+                                    <div class="quiz-option-title">J'explore les options</div>
+                                    <div class="quiz-option-desc">Pas de date précise</div>
+                                </button>
+                            </div>
+                            <button type="button" class="quiz-back mt-6" onclick="quizGoToStep(2)">
+                                <i class="fas fa-arrow-left mr-2"></i> Retour
+                            </button>
+                    </div>
+                        
+                        <!-- Step 4: Contact Info & Method -->
+                        <div class="quiz-step" data-step="4">
+                            <div class="mb-8">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span class="text-4xl leading-none">✨</span>
+                                    <h3 class="text-2xl font-display font-bold" style="color: hsl(222.2 47.4% 11.2%);">
+                                        Comment préférez-vous être contacté ?
+                                    </h3>
+                                </div>
+                                <p class="text-muted-foreground" style="font-size: 1rem;">Choisissez la méthode qui vous convient le mieux</p>
+                            </div>
+                            
+                            <!-- Contact Method Cards -->
+                            <div class="space-y-4 mb-8">
+                                <!-- WhatsApp Option -->
+                                <div class="contact-method-card" id="whatsapp-option">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white" style="background-color: #25D366;">
+                                            <i class="fab fa-whatsapp text-2xl"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="font-display font-semibold text-lg" style="color: hsl(222.2 47.4% 11.2%);">WhatsApp</h4>
+                                            <p class="text-sm text-muted-foreground">Réponse immédiate - Le plus rapide</p>
+                                        </div>
+                                        <span class="badge bg-green-100 text-green-700 font-semibold">Recommandé</span>
+                                    </div>
+                                    <input type="tel" id="whatsapp-phone" class="form-input mb-3" placeholder="Votre numéro (ex: 06 12 34 56 78)">
+                                    <button type="button" class="btn-primary w-full" onclick="sendToWhatsApp()">
+                                        <i class="fab fa-whatsapp mr-2"></i>
+                                        Continuer sur WhatsApp
+                    </button>
+                                </div>
+
+                                <!-- Cal.com Booking Option -->
+                                <div class="contact-method-card" style="border: 2px solid hsl(222.2 47.4% 11.2%); background: hsl(210 40% 98%);">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                            <i class="fas fa-calendar-check text-xl"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="font-display font-semibold text-lg" style="color: hsl(222.2 47.4% 11.2%);">Réserver un appel</h4>
+                                            <p class="text-sm text-muted-foreground">Choisissez votre créneau - Le plus simple</p>
+                                        </div>
+                                        <span class="badge" style="background: hsl(262 83% 58% / 0.1); color: hsl(262 83% 38%); border: 1px solid hsl(262 83% 58% / 0.2);">Populaire</span>
+                                    </div>
+                                    <p class="text-sm text-muted-foreground mb-3">
+                                        <i class="fas fa-clock mr-2"></i>Appel de 30 minutes pour discuter de votre projet
+                                    </p>
+                                    <button type="button" class="btn-primary w-full" onclick="openCalBooking()" data-cal-link="votre-compte-cal/30min" data-cal-config='{"layout":"month_view"}'>
+                                        <i class="fas fa-calendar-plus mr-2"></i>
+                                        Choisir un créneau
+                                    </button>
+                                </div>
+
+                                <!-- Phone Call Option -->
+                                <div class="contact-method-card">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white" style="background-color: hsl(222.2 47.4% 11.2%);">
+                                            <i class="fas fa-phone text-xl"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="font-display font-semibold text-lg" style="color: hsl(222.2 47.4% 11.2%);">Appel téléphonique</h4>
+                                            <p class="text-sm text-muted-foreground">On vous rappelle rapidement</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid md:grid-cols-2 gap-3">
+                                        <input type="text" id="call-name" class="form-input" placeholder="Votre nom">
+                                        <input type="tel" id="call-phone" class="form-input" placeholder="Votre numéro">
+                                    </div>
+                                    <button type="button" class="btn-secondary w-full mt-3" onclick="requestCallback()">
+                                        <i class="fas fa-phone mr-2"></i>
+                                        Demander un rappel
+                                    </button>
+                                </div>
+
+                                <!-- Email Option -->
+                                <div class="contact-method-card">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white" style="background: hsl(215.4 16.3% 46.9%);">
+                                            <i class="fas fa-envelope text-xl"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="font-display font-semibold text-lg" style="color: hsl(222.2 47.4% 11.2%);">Email</h4>
+                                            <p class="text-sm text-muted-foreground">Réponse sous 24h</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid md:grid-cols-2 gap-3 mb-3">
+                                        <input type="text" id="email-name" class="form-input" placeholder="Votre nom">
+                                        <input type="email" id="email-address" class="form-input" placeholder="Votre email">
+                                    </div>
+                                    <textarea id="email-message" class="form-input mb-3" rows="3" placeholder="Votre message (optionnel)"></textarea>
+                                    <button type="button" class="btn-secondary w-full" onclick="sendEmail()">
+                                        <i class="fas fa-paper-plane mr-2"></i>
+                                        Envoyer par email
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button type="button" class="quiz-back" onclick="quizGoToStep(3)">
+                                <i class="fas fa-arrow-left mr-2"></i> Retour
+                            </button>
                         </div>
                     </div>
-                    <button type="submit"
-                        class="w-full bg-primary text-white px-6 py-4 rounded-lg text-lg font-medium hover:bg-indigo-600 transition-all duration-300 shadow-lg hover:shadow-xl touch-target">
-                        Envoyer le message
-                    </button>
-                </form>
-            </div>
-            
-            <div class="mt-8 text-center" data-aos="fade-up">
-                <p class="text-gray-600">
-                    Ou contactez-nous directement par WhatsApp en cliquant sur le bouton vert en bas à droite de votre écran.
-                </p>
+                </div>
+
+                <!-- Quick Contact Bar -->
+                    <div class="mt-12 pt-12 border-t border-border">
+                    <p class="text-center text-muted-foreground mb-6">Ou contactez-nous directement</p>
+                        <div class="grid md:grid-cols-3 gap-6 text-center">
+                        <a href="https://wa.me/33695119297" target="_blank" class="quick-contact-btn">
+                            <i class="fab fa-whatsapp text-2xl gradient-text mb-2"></i>
+                            <div class="text-sm text-muted-foreground">WhatsApp</div>
+                            <div class="font-semibold">06 95 11 92 97</div>
+                        </a>
+                        <a href="tel:+33695119297" class="quick-contact-btn">
+                            <i class="fas fa-phone text-2xl gradient-text mb-2"></i>
+                            <div class="text-sm text-muted-foreground">Téléphone</div>
+                            <div class="font-semibold">06 95 11 92 97</div>
+                        </a>
+                        <a href="mailto:contact@agencebungee.fr" class="quick-contact-btn">
+                                <i class="fas fa-envelope text-2xl gradient-text mb-2"></i>
+                                <div class="text-sm text-muted-foreground">Email</div>
+                                <div class="font-semibold">contact@agencebungee.fr</div>
+                        </a>
+                            </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Bungee</h3>
-                    <p class="text-gray-400 mb-4">
-                        Votre partenaire digital à Montbéliard pour tous vos projets web et mobile.
+    <!-- Footer -->
+    <footer class="bg-primary text-primary-foreground relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 lg:px-8 relative z-10">
+            <!-- Main Footer Content -->
+            <div class="py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-1">
+                    <h3 class="text-3xl font-display font-bold mb-4 gradient-text-white">Bungee</h3>
+                    <p class="text-primary-foreground/80 mb-6 leading-relaxed">
+                        Agence digitale créative basée à Montbéliard. Nous transformons vos idées en expériences digitales mémorables.
                     </p>
-
+                    <div class="flex gap-3">
+                        <a href="https://wa.me/33695119297" target="_blank" class="footer-social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:contact@agencebungee.fr" class="footer-social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+33695119297" class="footer-social-link">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
                 </div>
 
+                <!-- Services -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#services"
-                                class="text-gray-400 hover:text-white transition-colors duration-300">Sites Web</a></li>
-                        <li><a href="#services"
-                                class="text-gray-400 hover:text-white transition-colors duration-300">Applications
-                                Web</a></li>
-                        <li><a href="#services"
-                                class="text-gray-400 hover:text-white transition-colors duration-300">Applications
-                                Mobiles</a></li>
-                        <li><a href="#services"
-                                class="text-gray-400 hover:text-white transition-colors duration-300">Maintenance</a>
+                    <h4 class="font-display font-bold text-lg mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#services" class="footer-link group">
+                                <i class="fas fa-arrow-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Sites Web
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="footer-link group">
+                                <i class="fas fa-arrow-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Applications Web
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="footer-link group">
+                                <i class="fas fa-arrow-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Applications Mobiles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="footer-link group">
+                                <i class="fas fa-arrow-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Maintenance & Support
+                            </a>
                         </li>
                     </ul>
                 </div>
 
+                <!-- Quick Links -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Liens utiles</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition-colors duration-300">Accueil</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors duration-300">Services</a></li>
-                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors duration-300">Portfolio</a></li>
-                        <li><a href="#apropos" class="text-gray-400 hover:text-white transition-colors duration-300">À
-                                propos</a></li>
-                        <li><a href="#temoignages" class="text-gray-400 hover:text-white transition-colors duration-300">Témoignages</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    <h4 class="font-display font-bold text-lg mb-6">Liens rapides</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#portfolio" class="footer-link group">
+                                <i class="fas fa-arrow-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#process" class="footer-link group">
+                                <i class="fas fa-arrow-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Notre Process
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#testimonials" class="footer-link group">
+                                <i class="fas fa-arrow-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Témoignages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#faq" class="footer-link group">
+                                <i class="fas fa-arrow-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                FAQ
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
+                <!-- Contact & Legal -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Contact</h3>
-                    <ul class="space-y-2 text-gray-400">
-
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
-                            <span>06 95 11 92 97</span>
+                    <h4 class="font-display font-bold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start gap-2 text-primary-foreground/80">
+                            <i class="fas fa-map-marker-alt mt-1"></i>
+                            <span>Montbéliard, France</span>
                         </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-2"></i>
-                            <span>contact@agencebungee.fr</span>
+                        <li class="flex items-start gap-2 text-primary-foreground/80">
+                            <i class="fas fa-envelope mt-1"></i>
+                            <a href="mailto:contact@agencebungee.fr" class="hover:text-primary-foreground transition-colors">
+                                contact@agencebungee.fr
+                            </a>
+                        </li>
+                        <li class="flex items-start gap-2 text-primary-foreground/80">
+                            <i class="fas fa-phone mt-1"></i>
+                            <a href="tel:+33695119297" class="hover:text-primary-foreground transition-colors">
+                                06 95 11 92 97
+                            </a>
                         </li>
                     </ul>
+                    
+                    <div class="pt-4 border-t border-primary-foreground/20">
+                        <h5 class="font-semibold text-sm mb-3">Légal</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="mentions-legales.html" class="footer-link">Mentions légales</a></li>
+                            <li><a href="politique-confidentialite.html" class="footer-link">Confidentialité</a></li>
+                            <li><a href="cgv.html" class="footer-link">CGV</a></li>
+                    </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">
-                    &copy; 2025 Bungee. Tous droits réservés.
-                </p>
-                <div class="flex space-x-6">
-                    <a href="mentions-legales.html" class="text-gray-400 hover:text-white transition-colors duration-300">Mentions
-                        légales</a>
-                    <a href="politique-confidentialite.html" class="text-gray-400 hover:text-white transition-colors duration-300">Politique de
-                        confidentialité</a>
-                    <a href="cgv.html" class="text-gray-400 hover:text-white transition-colors duration-300">CGV</a>
+            <!-- Bottom Bar -->
+            <div class="py-8 border-t border-primary-foreground/20">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-primary-foreground/70 text-sm">
+                        © 2025 Bungee. Tous droits réservés. Fait avec <i class="fas fa-heart text-red-400 mx-1"></i> à Montbéliard.
+                    </p>
+                    <div class="flex items-center gap-4 text-sm text-primary-foreground/70">
+                        <span class="flex items-center gap-2">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            Disponible pour nouveaux projets
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg p-8 max-w-md mx-4 transform transition-all duration-300 scale-0">
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/33695119297" target="_blank" id="whatsapp-btn" class="whatsapp-float">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
             <div class="text-center">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                    </svg>
+                    <i class="fas fa-check text-3xl text-green-500"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Message envoyé !</h3>
-                <p class="text-gray-600 mb-6">Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
-                <button class="bg-primary text-white px-6 py-2 rounded-md hover:bg-indigo-600 transition-colors duration-300" onclick="closeModal()">
-                    Fermer
-                </button>
+                <h3 class="text-2xl font-display font-bold mb-2">C'est noté ! 🎉</h3>
+                <p class="text-muted-foreground mb-6">Nous avons bien reçu votre demande. On vous recontacte dans les prochaines heures !</p>
+                <button onclick="closeModal()" class="btn-primary">Fermer</button>
             </div>
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-
-        const backToTopButton = document.getElementById('back-to-top');
-        const whatsappButton = document.getElementById('whatsapp-button');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.remove('opacity-0');
-                backToTopButton.classList.add('opacity-100');
-            } else {
-                backToTopButton.classList.remove('opacity-100');
-                backToTopButton.classList.add('opacity-0');
-            }
+    <!-- Exit Intent Popup -->
+    <div id="exit-intent-popup" class="exit-popup">
+        <div class="exit-popup-overlay" onclick="closeExitPopup()"></div>
+        <div class="exit-popup-content">
+            <!-- Close button -->
+            <button class="exit-popup-close" onclick="closeExitPopup()" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
             
-            if (window.scrollY > 10) {
-                whatsappButton.classList.remove('opacity-0');
-                whatsappButton.classList.add('opacity-100');
-            } else {
-                whatsappButton.classList.remove('opacity-100');
-                whatsappButton.classList.add('opacity-0');
-            }
-        });
+            <!-- Content -->
+            <div class="exit-popup-inner">
+                <!-- Icon/Visual -->
+                <div class="exit-popup-icon">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-xl opacity-50 animate-pulse"></div>
+                        <div class="relative w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-gift text-3xl text-white"></i>
+                        </div>
+                    </div>
+                </div>
 
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+                <!-- Headline -->
+                <h3 class="exit-popup-title">Attendez ! 🎁</h3>
+                <p class="exit-popup-subtitle">Ne partez pas les mains vides</p>
+
+                <!-- Offer -->
+                <div class="exit-popup-offer">
+                    <div class="exit-popup-badge">Offre exclusive</div>
+                    <h4 class="exit-popup-offer-title">
+                        Consultation gratuite de 15 minutes
+                    </h4>
+                    <p class="exit-popup-offer-desc">
+                        Discutons de votre projet sans engagement. Obtenez des conseils d'expert et un devis personnalisé.
+                    </p>
+                </div>
+
+                <!-- Benefits -->
+                <div class="exit-popup-benefits">
+                    <div class="exit-popup-benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Analyse gratuite de vos besoins</span>
+                    </div>
+                    <div class="exit-popup-benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Devis détaillé en 24h</span>
+                    </div>
+                    <div class="exit-popup-benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sans engagement</span>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="exit-popup-actions">
+                    <button onclick="exitPopupBookCall()" class="btn-primary">
+                        <i class="fas fa-calendar-check mr-2"></i>
+                        Réserver ma consultation
+                    </button>
+                    <button onclick="exitPopupWhatsApp()" class="btn-secondary">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Contacter sur WhatsApp
+                    </button>
+                </div>
+
+                <!-- Trust indicator -->
+                <div class="exit-popup-trust">
+                    <div class="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                        <i class="fas fa-users"></i>
+                        <span>Plus de 50 entreprises nous font confiance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cal.com Embed Script -->
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", {origin:"https://cal.com"});
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // GSAP Animations & ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero animations - subtle shadcn style
+        gsap.from('.hero-badge', { opacity: 0, y: 10, duration: 0.4, delay: 0.1 });
+        gsap.from('.hero-title', { opacity: 0, y: 10, duration: 0.4, delay: 0.2 });
+        gsap.from('.hero-subtitle', { opacity: 0, y: 10, duration: 0.4, delay: 0.3 });
+        gsap.from('.hero-cta', { opacity: 0, y: 10, duration: 0.4, delay: 0.4 });
+        gsap.from('.hero-stats', { opacity: 0, y: 10, duration: 0.4, delay: 0.5 });
+
+        // Service cards V2 animation - subtle
+        gsap.utils.toArray('.service-card-v2').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                delay: i * 0.1,
+                ease: 'power2.out'
             });
         });
 
-        const progressBar = document.getElementById('progress-bar');
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + '%';
+        // Reassurance bar animation - subtle
+        gsap.from('.reassurance-bar', {
+            scrollTrigger: {
+                trigger: '.reassurance-bar',
+                start: 'top 85%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.4,
+            ease: 'power2.out'
         });
 
-        const contactForm = document.getElementById('contact-form');
-        const successModal = document.getElementById('success-modal');
+        // Portfolio items animation - subtle
+        gsap.utils.toArray('.portfolio-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                delay: i * 0.05
+            });
+        });
 
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
-            
-            let isValid = true;
-            const requiredFields = contactForm.querySelectorAll('[required]');
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    const errorDiv = field.nextElementSibling;
-                    errorDiv.textContent = field.dataset.error;
-                    errorDiv.classList.remove('hidden');
-                    field.classList.add('border-red-500');
+        // Process steps animation - subtle
+        gsap.utils.toArray('.process-step').forEach((step, i) => {
+            gsap.from(step, {
+                scrollTrigger: {
+                    trigger: step,
+                    start: 'top 85%',
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        });
+
+        // Testimonials animation - subtle
+        gsap.from('.trust-badge', {
+            scrollTrigger: {
+                trigger: '#testimonials',
+                start: 'top 85%',
+            },
+            opacity: 0,
+            y: 10,
+            duration: 0.4,
+            stagger: 0.05
+        });
+        
+        gsap.from('.testimonial-featured', {
+            scrollTrigger: {
+                trigger: '.testimonial-featured',
+                start: 'top 85%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.4,
+            ease: 'power2.out'
+        });
+        
+        gsap.utils.toArray('.testimonial-card-premium').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                delay: i * 0.05,
+                ease: 'power2.out'
+            });
+        });
+        
+        gsap.utils.toArray('.trust-indicator').forEach((indicator, i) => {
+            gsap.from(indicator, {
+                scrollTrigger: {
+                    trigger: '.trust-indicator',
+                    start: 'top 85%',
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                delay: i * 0.05
+            });
+        });
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
 
-            if (isValid) {
-                const submitButton = contactForm.querySelector('button[type="submit"]');
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<span class="inline-block animate-spin mr-2">↻</span> Envoi...';
+        // Back to top
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
 
-                try {
-                    const formData = new FormData(contactForm);
-                    const data = Object.fromEntries(formData.entries());
-                    
-                    // Envoi vers Discord via webhook
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // WhatsApp button
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                whatsappBtn.classList.add('visible');
+            } else {
+                whatsappBtn.classList.remove('visible');
+            }
+        });
+
+        // Quiz Conversational Logic
+        let quizData = {
+            service: '',
+            budget: '',
+            timeline: '',
+            contactMethod: '',
+            name: '',
+            phone: '',
+            email: '',
+            message: ''
+        };
+
+        // Quiz navigation
+        document.querySelectorAll('.quiz-option').forEach(button => {
+            button.addEventListener('click', function() {
+                const step = this.closest('.quiz-step').dataset.step;
+                const value = this.dataset.value;
+                const nextStep = this.dataset.next;
+                
+                // Save data based on current step
+                if (step === '1') quizData.service = value;
+                if (step === '2') quizData.budget = value;
+                if (step === '3') quizData.timeline = value;
+                
+                // Animate option selection
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                    quizGoToStep(parseInt(nextStep));
+                }, 150);
+            });
+        });
+
+        function quizGoToStep(stepNumber) {
+            // Hide all steps
+            document.querySelectorAll('.quiz-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Show target step
+            const targetStep = document.querySelector(`.quiz-step[data-step="${stepNumber}"]`);
+            if (targetStep) {
+                targetStep.classList.add('active');
+            }
+            
+            // Update progress bar
+            const progress = (stepNumber / 4) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = `Question ${stepNumber} sur 4`;
+            document.getElementById('progress-percent').textContent = Math.round(progress) + '%';
+            
+            // Scroll to top of contact section
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Cal.com Booking
+        function openCalBooking() {
+            // Send quiz data to Discord first
+            quizData.contactMethod = 'cal.com';
+            sendToDiscord();
+            
+            // Open Cal.com modal with pre-filled data
+            Cal("ui", {
+                "styles": {"branding": {"brandColor": "#1e293b"}},
+                "hideEventTypeDetails": false,
+                "layout": "month_view"
+            });
+            
+            // IMPORTANT: Remplacez 'votre-compte-cal/30min' par votre vrai lien Cal.com
+            // Exemple: 'agencebungee/consultation' ou 'john-doe/30min'
+            Cal("openModal", {
+                calLink: "votre-compte-cal/30min",
+                config: {
+                    name: quizData.name || '',
+                    email: quizData.email || '',
+                    notes: `Type de projet: ${getServiceLabel(quizData.service)}\nBudget: ${quizData.budget}\nDélai: ${quizData.timeline}`,
+                    layout: "month_view"
+                }
+            });
+        }
+
+        // WhatsApp option
+        async function sendToWhatsApp() {
+            const phone = document.getElementById('whatsapp-phone').value;
+            
+            if (!phone) {
+                alert('Veuillez entrer votre numéro de téléphone');
+                return;
+            }
+            
+            quizData.phone = phone;
+            quizData.contactMethod = 'whatsapp';
+            
+            // Send to Discord
+            await sendToDiscord();
+            
+            // Build WhatsApp message
+            const message = `Bonjour ! Je suis intéressé par vos services.
+
+📋 Mon projet :
+- Type : ${getServiceLabel(quizData.service)}
+- Budget : ${quizData.budget}
+- Délai : ${quizData.timeline}
+
+Mon téléphone : ${phone}`;
+            
+            const whatsappUrl = `https://wa.me/33695119297?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success
+            showSuccessMessage();
+        }
+
+        // Phone callback option
+        async function requestCallback() {
+            const name = document.getElementById('call-name').value;
+            const phone = document.getElementById('call-phone').value;
+            
+            if (!name || !phone) {
+                alert('Veuillez remplir votre nom et numéro');
+                return;
+            }
+            
+            quizData.name = name;
+            quizData.phone = phone;
+            quizData.contactMethod = 'telephone';
+            
+            // Send to Discord
+            await sendToDiscord();
+            
+            // Show success
+            showSuccessMessage();
+        }
+
+        // Email option
+        async function sendEmail() {
+            const name = document.getElementById('email-name').value;
+            const email = document.getElementById('email-address').value;
+            const message = document.getElementById('email-message').value;
+            
+            if (!name || !email) {
+                alert('Veuillez remplir votre nom et email');
+                return;
+            }
+            
+            quizData.name = name;
+            quizData.email = email;
+            quizData.message = message;
+            quizData.contactMethod = 'email';
+            
+            // Send to Discord
+            await sendToDiscord();
+            
+            // Show success
+            showSuccessMessage();
+        }
+
+        // Send data to Discord
+        async function sendToDiscord() {
+            try {
                     await fetch('https://discord.com/api/webhooks/1416764678503403671/ZinHW6OlCgEXcglBLO8ipk9OVgckxYBU1Vl2p0qKPJvZB4_oLudgKAyJ5H26eGBeAXzz', {
                         method: 'POST',
                         body: JSON.stringify({
                             embeds: [{
-                                title: "Nouveau lead !",
-                                color: 0x6366F1, // Couleur primary
+                            title: "🎯 Nouveau lead qualifié via le quiz !",
+                            color: 0x10b981,
                                 fields: [
-                                    {
-                                        name: "Nom",
-                                        value: data.name || "Non renseigné",
-                                        inline: true
-                                    },
-                                    {
-                                        name: "Email",
-                                        value: data.email || "Non renseigné",
-                                        inline: true
-                                    },
-                                    {
-                                        name: "Téléphone",
-                                        value: data.phone || "Non renseigné",
-                                        inline: true
-                                    },
-                                    {
-                                        name: "Service",
-                                        value: data.service || "Non renseigné",
-                                        inline: true
-                                    },
-                                    {
-                                        name: "Message",
-                                        value: data.message || "Pas de message"
-                                    }
+                                { name: "📦 Type de projet", value: getServiceLabel(quizData.service), inline: true },
+                                { name: "💰 Budget", value: quizData.budget || "Non renseigné", inline: true },
+                                { name: "⏰ Timeline", value: quizData.timeline || "Non renseigné", inline: true },
+                                { name: "📞 Méthode de contact", value: quizData.contactMethod || "Non renseigné", inline: true },
+                                { name: "👤 Nom", value: quizData.name || "Non renseigné", inline: true },
+                                { name: "📱 Téléphone", value: quizData.phone || "Non renseigné", inline: true },
+                                { name: "📧 Email", value: quizData.email || "Non renseigné", inline: true },
+                                { name: "💬 Message", value: quizData.message || "Pas de message" }
                                 ],
                                 timestamp: new Date().toISOString()
                             }]
                         }),
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    });
-
-                    // Affichage du message de succès
-                    successModal.classList.remove('hidden');
-                    successModal.querySelector('div').classList.remove('scale-0');
-                    
-                    // Réinitialisation du formulaire
-                    contactForm.reset();
-                } catch (error) {
-                    console.error('Erreur:', error);
-                    alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
-                } finally {
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = 'Envoyer le message';
-                }
+                    headers: { 'Content-Type': 'application/json' },
+                });
+            } catch (error) {
+                console.error('Erreur Discord:', error);
             }
-        });
+        }
+
+        function getServiceLabel(value) {
+            const labels = {
+                'site-vitrine': '🏪 Site Vitrine',
+                'application-web': '⚙️ Application Web',
+                'application-mobile': '📱 Application Mobile',
+                'pas-sur': '💭 Besoin de conseils'
+            };
+            return labels[value] || value;
+        }
+
+        const successModal = document.getElementById('success-modal');
+        
+        function showSuccessMessage() {
+                successModal.classList.add('active');
+            // Reset quiz after 3 seconds
+            setTimeout(() => {
+                quizGoToStep(1);
+                quizData = {
+                    service: '',
+                    budget: '',
+                    timeline: '',
+                    contactMethod: '',
+                    name: '',
+                    phone: '',
+                    email: '',
+                    message: ''
+                };
+            }, 3000);
+        }
 
         function closeModal() {
-            const modal = document.getElementById('success-modal');
-            modal.querySelector('div').classList.add('scale-0');
-            setTimeout(() => modal.classList.add('hidden'), 300);
+            successModal.classList.remove('active');
         }
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+        // Close modal on click outside
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                closeModal();
+            }
+        });
 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.closest('.faq-item');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                faqItem.classList.toggle('active');
+            });
+        });
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+        // Advantage cards animation - subtle
+        gsap.utils.toArray('.advantage-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                delay: i * 0.05,
+                ease: 'power2.out'
+            });
+        });
+
+        // CTA Banner animation - subtle
+        gsap.from('.cta-banner', {
+            scrollTrigger: {
+                trigger: '.cta-banner',
+                start: 'top 85%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.4,
+            ease: 'power2.out'
+        });
+
+        // FAQ items animation - subtle
+        gsap.utils.toArray('.faq-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                delay: i * 0.05,
+                ease: 'power2.out'
+            });
+        });
+
+        // Parallax effect for hero background
+        gsap.to('.animate-blob', {
+            y: 100,
+            scrollTrigger: {
+                trigger: '#hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1
+            }
+        });
+
+        // Add cursor follower effect (optional, premium touch)
+        const cursor = document.createElement('div');
+        cursor.classList.add('cursor-follower');
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+        
+        // Hide cursor follower on mobile
+        if (window.innerWidth < 768) {
+            cursor.style.display = 'none';
+        }
+
+        // Exit Intent Popup Logic
+        let exitIntentShown = false;
+        let mouseOutCount = 0;
+        const exitPopup = document.getElementById('exit-intent-popup');
+
+        // DEBUG MODE - Définir à true pour tester facilement
+        const DEBUG_MODE = true; // Changez à false en production
+
+        // Check if already shown (cookie)
+        function hasExitPopupBeenShown() {
+            if (DEBUG_MODE) return false; // En mode debug, toujours afficher
+            return document.cookie.includes('exitPopupShown=true');
+        }
+
+        // Set cookie to prevent showing again
+        function setExitPopupCookie() {
+            if (DEBUG_MODE) return; // Ne pas définir de cookie en mode debug
+            const expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + 7); // Show again after 7 days
+            document.cookie = `exitPopupShown=true; expires=${expiryDate.toUTCString()}; path=/`;
+        }
+
+        // Show exit popup
+        function showExitPopup() {
+            console.log('🎯 Tentative d\'affichage du popup...');
+            
+            // Vérifier que l'élément existe
+            if (!exitPopup) {
+                console.error('❌ ERREUR: Element #exit-intent-popup introuvable !');
+                return;
+            }
+            
+            console.log('✓ Element popup trouvé:', exitPopup);
+            console.log('exitIntentShown:', exitIntentShown);
+            console.log('hasExitPopupBeenShown:', hasExitPopupBeenShown());
+            
+            if (!exitIntentShown && !hasExitPopupBeenShown()) {
+                console.log('✅ Affichage du popup !');
+                exitPopup.classList.add('active');
+                exitIntentShown = true;
+                setExitPopupCookie();
+                
+                // Track in analytics if available
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'exit_intent_shown');
+                }
+            } else {
+                console.log('❌ Popup non affiché - Conditions non remplies');
+            }
+        }
+
+        // TEST: Afficher immédiatement en mode debug (après 3 secondes)
+        if (DEBUG_MODE) {
+            console.log('🔧 MODE DEBUG ACTIVÉ - Le popup s\'affichera dans 3 secondes');
+            setTimeout(() => {
+                showExitPopup();
+            }, 3000);
+        }
+
+        // Close exit popup
+        function closeExitPopup() {
+            exitPopup.classList.remove('active');
+        }
+
+        // Exit popup CTA actions
+        function exitPopupBookCall() {
+            closeExitPopup();
+            // Track conversion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exit_popup_book_call');
+            }
+            // Open Cal.com or scroll to contact
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                if (typeof Cal !== 'undefined') {
+                    openCalBooking();
+                }
+            }, 500);
+        }
+
+        function exitPopupWhatsApp() {
+            closeExitPopup();
+            // Track conversion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exit_popup_whatsapp');
+            }
+            const message = encodeURIComponent("Bonjour ! J'aimerais discuter d'un projet web avec vous.");
+            window.open(`https://wa.me/33695119297?text=${message}`, '_blank');
+        }
+
+        // Detect if mobile
+        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        console.log('📱 Device type:', isMobile ? 'MOBILE' : 'DESKTOP');
+
+        // DESKTOP: Detect exit intent (mouse leaving)
+        if (!isMobile) {
+            document.addEventListener('mouseleave', (e) => {
+                // Check if mouse is leaving from the top
+                if (e.clientY <= 0) {
+                    mouseOutCount++;
+                    console.log('🖱️ Tentative de sortie détectée (desktop)');
+                    if (mouseOutCount >= 1) {
+                        showExitPopup();
+                    }
                 }
             });
-        });
+        }
 
-        // Animation du bouton WhatsApp
-        whatsappButton.classList.add('whatsapp-pulse');
-        
-        // Arrêter l'animation au survol
-        whatsappButton.addEventListener('mouseenter', () => {
-            whatsappButton.classList.remove('whatsapp-pulse');
-        });
-        
-        // Reprendre l'animation quand la souris quitte le bouton
-        whatsappButton.addEventListener('mouseleave', () => {
-            whatsappButton.classList.add('whatsapp-pulse');
-        });
-
-        // Gestion du menu mobile
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navbar = document.getElementById('navbar');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // MOBILE: Detect scroll-up intent (user scrolling back to top)
+        if (isMobile) {
+            let lastScrollY = window.scrollY;
+            let scrollUpCount = 0;
             
-            // Ajouter une classe pour l'animation
-            if (!mobileMenu.classList.contains('hidden')) {
-                // Petit délai pour permettre à la transition de s'exécuter
-                setTimeout(() => {
-                    mobileMenu.classList.add('active');
-                }, 10);
-            } else {
-                mobileMenu.classList.remove('active');
-            }
-        });
-        
-        // Fermer le menu mobile quand on clique sur un lien
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300); // Correspond à la durée de la transition
-            });
-        });
-        
-        // Fermer le menu mobile quand on clique en dehors
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.classList.contains('hidden') && 
-                !mobileMenu.contains(e.target) && 
-                !mobileMenuButton.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300);
-            }
-        });
-        
-        // Optimisation du défilement sur mobile
-        if ('ontouchstart' in window) {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('touchend', function(e) {
-                    // Ajouter un petit délai pour éviter les clics accidentels
-                    setTimeout(() => {
-                        const targetId = this.getAttribute('href');
-                        if (targetId === '#') return;
-                        
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            // Ajuster l'offset pour mobile
-                            const headerOffset = window.innerWidth < 768 ? 60 : 80;
-                            const elementPosition = targetElement.getBoundingClientRect().top;
-                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                            
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }, 50);
-                });
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                
+                // Détection scroll vers le haut rapide
+                if (currentScrollY < lastScrollY && currentScrollY < 200) {
+                    scrollUpCount++;
+                    console.log('📱 Scroll vers le haut détecté:', scrollUpCount);
+                    
+                    // Afficher après 2 scrolls vers le haut
+                    if (scrollUpCount >= 2 && !exitIntentShown) {
+                        console.log('📱 Exit intent mobile déclenché (scroll up)');
+                        showExitPopup();
+                    }
+                }
+                
+                lastScrollY = currentScrollY;
             });
         }
+
+        // MOBILE: Detect when user tries to leave (visibility change)
+        if (isMobile) {
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && !exitIntentShown && !hasExitPopupBeenShown()) {
+                    // L'utilisateur change d'onglet ou quitte
+                    const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                    
+                    // Afficher seulement si a scrollé au moins 30%
+                    if (scrollPercentage >= 30) {
+                        console.log('📱 Exit intent mobile déclenché (visibility change)');
+                        // Petit délai pour que le popup soit visible au retour
+                        setTimeout(() => {
+                            if (!document.hidden) {
+                                showExitPopup();
+                            }
+                        }, 100);
+                    }
+                }
+            });
+        }
+
+        // MOBILE & DESKTOP: Time-based trigger (backup)
+        let timeOnPage = 0;
+        const timeThreshold = isMobile ? 30000 : 45000; // 30s mobile, 45s desktop
+        const scrollThreshold = isMobile ? 40 : 50; // 40% mobile, 50% desktop
         
-        // Optimisation des formulaires pour mobile
-        const formInputs = document.querySelectorAll('input, textarea, select');
-        formInputs.forEach(input => {
-            // Ajuster le padding sur mobile
-            if (window.innerWidth < 768) {
-                input.classList.add('py-3', 'px-4');
+        const timeInterval = setInterval(() => {
+            timeOnPage += 1000;
+            
+            if (timeOnPage >= timeThreshold && !exitIntentShown && !hasExitPopupBeenShown()) {
+                const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                
+                if (scrollPercentage >= scrollThreshold) {
+                    console.log(`⏰ Time-based trigger (${isMobile ? 'mobile' : 'desktop'})`);
+                    showExitPopup();
+                    clearInterval(timeInterval);
+                }
             }
-            
-            // Améliorer le focus sur mobile
-            input.addEventListener('focus', () => {
-                input.classList.add('ring-2', 'ring-primary', 'ring-opacity-50');
+        }, 1000);
+
+        // MOBILE: Inactivity detection (plus agressif sur mobile)
+        if (isMobile) {
+            let inactivityTime = 0;
+            let inactivityTimer;
+
+            function resetInactivityTimer() {
+                inactivityTime = 0;
+            }
+
+            // Reset sur interaction
+            ['touchstart', 'scroll', 'touchmove'].forEach(event => {
+                document.addEventListener(event, resetInactivityTimer, { passive: true });
             });
-            
-            input.addEventListener('blur', () => {
-                input.classList.remove('ring-2', 'ring-primary', 'ring-opacity-50');
-            });
+
+            // Check inactivité toutes les secondes
+            setInterval(() => {
+                inactivityTime += 1000;
+                
+                // Après 15 secondes d'inactivité sur mobile
+                if (inactivityTime >= 15000 && !exitIntentShown && !hasExitPopupBeenShown()) {
+                    const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                    
+                    if (scrollPercentage >= 30) {
+                        console.log('📱 Exit intent mobile déclenché (inactivité)');
+                        showExitPopup();
+                    }
+                }
+            }, 1000);
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeExitPopup();
+            }
         });
-        
-        // Détection de l'orientation pour optimiser l'affichage
-        window.addEventListener('orientationchange', () => {
-            // Recalculer les hauteurs et positions après changement d'orientation
-            setTimeout(() => {
-                AOS.refresh();
-            }, 200);
-        });
+
+        // Make functions globally accessible
+        window.closeExitPopup = closeExitPopup;
+        window.exitPopupBookCall = exitPopupBookCall;
+        window.exitPopupWhatsApp = exitPopupWhatsApp;
+        window.showExitPopup = showExitPopup; // Pour tester manuellement
+        window.testExitPopup = function() {
+            console.log('🧪 Test manuel du popup...');
+            exitIntentShown = false; // Reset pour permettre l'affichage
+            showExitPopup();
+        };
+
+        // Info dans la console
+        console.log('');
+        console.log('🎯 EXIT INTENT POPUP - Commandes disponibles:');
+        console.log('   testExitPopup()      - Afficher le popup maintenant');
+        console.log('   closeExitPopup()     - Fermer le popup');
+        console.log('   DEBUG_MODE actuel:', DEBUG_MODE ? '✅ ACTIVÉ' : '❌ DÉSACTIVÉ');
+        console.log('');
     </script>
 </body>
-
 </html>
