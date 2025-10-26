@@ -2,8 +2,11 @@
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Bungee - Agence de création digitale à Montbéliard. Sites web, applications web et mobiles pour seulement 500€.">
+    <meta name="theme-color" content="#1e293b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Bungee | Agence de Création Digitale à Montbéliard</title>
     
     <!-- Analytics -->
@@ -79,8 +82,8 @@
     
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500">
-        <div class="container mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
                 <a href="#" class="text-2xl font-display font-bold tracking-tight">
                     <span class="gradient-text">Bungee</span>
                 </a>
@@ -117,56 +120,56 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
         <!-- Animated Background -->
         <div class="absolute inset-0 -z-10">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-            <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+            <div class="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute top-1/3 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-64 sm:w-96 h-64 sm:h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
         
-        <div class="container mx-auto px-6 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-5xl mx-auto text-center">
-                <div class="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 backdrop-blur-sm mb-8">
+                <div class="hero-badge inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-border bg-secondary/50 backdrop-blur-sm mb-6 sm:mb-8 text-xs sm:text-sm">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                     </span>
-                    <span class="text-sm font-medium">Places limitées - Réservez maintenant</span>
+                    <span class="font-medium">Places limitées - Réservez maintenant</span>
                 </div>
                 
-                <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-6">
+                <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold tracking-tight mb-4 sm:mb-6 px-2 sm:px-0">
                     Créons quelque chose
-                    <span class="block gradient-text mt-2">d'extraordinaire</span>
+                    <span class="block gradient-text mt-1 sm:mt-2">d'extraordinaire</span>
                     </h1>
                 
-                <p class="hero-subtitle text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+                <p class="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
                     Agence digitale créative basée à Montbéliard. Nous transformons vos idées en expériences digitales mémorables.
                 </p>
                 
-                <div class="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#contact" class="btn-primary text-lg px-8 py-4">
+                <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+                    <a href="#contact" class="btn-primary w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
                         Démarrer un projet
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
-                    <a href="#portfolio" class="btn-secondary text-lg px-8 py-4">
+                    <a href="#portfolio" class="btn-secondary w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
                         Voir nos réalisations
                     </a>
                                 </div>
                 
                 <!-- Stats -->
-                <div class="hero-stats grid grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto">
+                <div class="hero-stats grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 max-w-2xl mx-auto px-4 sm:px-0">
                     <div class="stat-item">
-                        <div class="text-4xl font-display font-bold gradient-text">50+</div>
-                        <div class="text-sm text-muted-foreground mt-2">Projets livrés</div>
+                        <div class="text-2xl sm:text-3xl md:text-4xl font-display font-bold gradient-text">50+</div>
+                        <div class="text-xs sm:text-sm text-muted-foreground mt-1 sm:mt-2">Projets livrés</div>
                             </div>
                     <div class="stat-item">
-                        <div class="text-4xl font-display font-bold gradient-text">100%</div>
-                        <div class="text-sm text-muted-foreground mt-2">Clients satisfaits</div>
+                        <div class="text-2xl sm:text-3xl md:text-4xl font-display font-bold gradient-text">100%</div>
+                        <div class="text-xs sm:text-sm text-muted-foreground mt-1 sm:mt-2">Clients satisfaits</div>
                         </div>
                     <div class="stat-item">
-                        <div class="text-4xl font-display font-bold gradient-text">7j</div>
-                        <div class="text-sm text-muted-foreground mt-2">Livraison rapide</div>
+                        <div class="text-2xl sm:text-3xl md:text-4xl font-display font-bold gradient-text">7j</div>
+                        <div class="text-xs sm:text-sm text-muted-foreground mt-1 sm:mt-2">Livraison rapide</div>
                                 </div>
                             </div>
                         </div>
@@ -184,13 +187,13 @@
     </section>
 
     <!-- Services Section with Scrollytelling -->
-    <section id="services" class="py-32 relative overflow-hidden">
-        <div class="container mx-auto px-6 lg:px-8">
+    <section id="services" class="py-16 sm:py-24 md:py-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-6xl mx-auto">
-                <div class="section-header text-center mb-20">
-                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Ce que nous faisons</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Nos services</h2>
-                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                <div class="section-header text-center mb-12 sm:mb-16 md:mb-20">
+                    <span class="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Ce que nous faisons</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 px-2 sm:px-0">Nos services</h2>
+                    <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
                         Votre présence en ligne, simple et efficace. Pas de jargon compliqué, juste des solutions qui fonctionnent.
                     </p>
                 </div>
@@ -501,13 +504,13 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-32 bg-secondary/30">
-        <div class="container mx-auto px-6 lg:px-8">
+    <section id="portfolio" class="py-16 sm:py-24 md:py-32 bg-secondary/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-6xl mx-auto">
-                <div class="section-header text-center mb-20">
-                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Notre travail</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Projets récents</h2>
-                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Découvrez quelques-unes de nos réalisations</p>
+                <div class="section-header text-center mb-12 sm:mb-16 md:mb-20">
+                    <span class="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Notre travail</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 px-2 sm:px-0">Projets récents</h2>
+                    <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">Découvrez quelques-unes de nos réalisations</p>
             </div>
 
                 <!-- Portfolio Grid -->
@@ -579,6 +582,52 @@
                 </div>
             </div>
 
+                    <!-- Project 4 -->
+                    <div class="portfolio-item group">
+                        <div class="portfolio-image">
+                            <img src="images/iceburger.png" alt="Ice Burger" class="w-full h-full object-cover">
+                            <div class="portfolio-overlay">
+                                <a href="https://iceburger.fr" target="_blank" class="btn-primary">
+                                    Voir le projet
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-3">
+                                <span class="badge">Click&Collect</span>
+                                <span class="badge">Restaurant</span>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold mb-2">Ice Burger</h3>
+                            <p class="text-muted-foreground">
+                                Site Click&Collect moderne pour un restaurant de burgers à Audincourt.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="portfolio-item group">
+                        <div class="portfolio-image">
+                            <img src="images/debarrascomtois.png" alt="Débarras Comtois" class="w-full h-full object-cover">
+                            <div class="portfolio-overlay">
+                                <a href="https://debarrascomtois.com" target="_blank" class="btn-primary">
+                                    Voir le projet
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-3">
+                                <span class="badge">Site Vitrine</span>
+                                <span class="badge">Services</span>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold mb-2">Débarras Comtois</h3>
+                            <p class="text-muted-foreground">
+                                Site vitrine pour une entreprise de débarras et nettoyage en Franche-Comté.
+                            </p>
+                        </div>
+                    </div>
+
                     <!-- CTA Card -->
                     <div class="portfolio-item cta-card flex items-center justify-center">
                         <div class="text-center p-12">
@@ -597,13 +646,13 @@
     </section>
 
     <!-- Process Section with Scrollytelling -->
-    <section id="process" class="py-32 relative overflow-hidden">
-        <div class="container mx-auto px-6 lg:px-8">
+    <section id="process" class="py-16 sm:py-24 md:py-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-6xl mx-auto">
-                <div class="section-header text-center mb-20">
-                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Comment ça marche</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Notre processus</h2>
-                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Un workflow éprouvé pour des résultats exceptionnels</p>
+                <div class="section-header text-center mb-12 sm:mb-16 md:mb-20">
+                    <span class="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Comment ça marche</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 px-2 sm:px-0">Notre processus</h2>
+                    <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">Un workflow éprouvé pour des résultats exceptionnels</p>
                 </div>
                 
                 <!-- Process Steps -->
@@ -749,12 +798,12 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-32 bg-secondary/30 relative overflow-hidden">
+    <section id="testimonials" class="py-16 sm:py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
         <!-- Background decoration -->
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute bottom-0 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
         
-        <div class="container mx-auto px-6 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-7xl mx-auto">
                 <!-- Header with social proof -->
                 <div class="text-center mb-16">
@@ -986,13 +1035,13 @@
     </section>
 
     <!-- Why Bungee Section -->
-    <section id="why-bungee" class="py-32 bg-white relative overflow-hidden">
-        <div class="container mx-auto px-6 lg:px-8">
+    <section id="why-bungee" class="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-6xl mx-auto">
-                <div class="section-header text-center mb-20">
-                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Nos avantages</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Pourquoi choisir Bungee ?</h2>
-                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                <div class="section-header text-center mb-12 sm:mb-16 md:mb-20">
+                    <span class="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Nos avantages</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 px-2 sm:px-0">Pourquoi choisir Bungee ?</h2>
+                    <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
                         Nous ne sommes pas une agence comme les autres. Voici ce qui fait notre différence.
                     </p>
                 </div>
@@ -1110,13 +1159,13 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-32 bg-secondary/30 relative overflow-hidden">
-        <div class="container mx-auto px-6 lg:px-8">
+    <section id="faq" class="py-16 sm:py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
-                <div class="section-header text-center mb-16">
-                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">FAQ</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Questions fréquentes</h2>
-                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                <div class="section-header text-center mb-12 sm:mb-14 md:mb-16">
+                    <span class="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">FAQ</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 px-2 sm:px-0">Questions fréquentes</h2>
+                    <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
                         Vous avez des questions ? Nous avons les réponses.
                     </p>
                 </div>
@@ -1225,13 +1274,13 @@
     </section>
 
     <!-- Contact Section - Conversational Quiz -->
-    <section id="contact" class="py-32 relative overflow-hidden">
-        <div class="container mx-auto px-6 lg:px-8">
+    <section id="contact" class="py-16 sm:py-24 md:py-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
-                <div class="section-header text-center mb-16">
-                    <span class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Contact</span>
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">Parlons de votre projet</h2>
-                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">3 questions rapides pour mieux vous aider (30 secondes)</p>
+                <div class="section-header text-center mb-12 sm:mb-14 md:mb-16">
+                    <span class="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Contact</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 px-2 sm:px-0">Parlons de votre projet</h2>
+                    <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">3 questions rapides pour mieux vous aider (30 secondes)</p>
             </div>
             
                 <!-- Conversational Quiz Container -->
@@ -1675,23 +1724,23 @@
                     <div class="relative">
                         <div class="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-xl opacity-50 animate-pulse"></div>
                         <div class="relative w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto">
-                            <i class="fas fa-gift text-3xl text-white"></i>
+                            <i class="fas fa-clock text-3xl text-white"></i>
                         </div>
                     </div>
                 </div>
 
                 <!-- Headline -->
-                <h3 class="exit-popup-title">Attendez ! 🎁</h3>
-                <p class="exit-popup-subtitle">Ne partez pas les mains vides</p>
+                <h3 class="exit-popup-title" id="exit-popup-title">Une dernière chose avant de partir... ⏰</h3>
+                <p class="exit-popup-subtitle" id="exit-popup-subtitle">Il ne reste que 3 places ce mois-ci</p>
 
                 <!-- Offer -->
                 <div class="exit-popup-offer">
-                    <div class="exit-popup-badge">Offre exclusive</div>
-                    <h4 class="exit-popup-offer-title">
-                        Consultation gratuite de 15 minutes
+                    <div class="exit-popup-badge">⚡ Offre limitée</div>
+                    <h4 class="exit-popup-offer-title" id="exit-popup-offer-title">
+                        Premier appel stratégique offert (30 min)
                     </h4>
-                    <p class="exit-popup-offer-desc">
-                        Discutons de votre projet sans engagement. Obtenez des conseils d'expert et un devis personnalisé.
+                    <p class="exit-popup-offer-desc" id="exit-popup-offer-desc">
+                        On analyse votre projet ensemble, vous repartez avec un plan d'action clair et un devis précis. Même si vous ne travaillez pas avec nous, vous aurez des réponses concrètes.
                     </p>
                 </div>
 
@@ -1699,15 +1748,15 @@
                 <div class="exit-popup-benefits">
                     <div class="exit-popup-benefit">
                         <i class="fas fa-check-circle"></i>
-                        <span>Analyse gratuite de vos besoins</span>
+                        <span>Audit gratuit de vos besoins digitaux</span>
                     </div>
                     <div class="exit-popup-benefit">
                         <i class="fas fa-check-circle"></i>
-                        <span>Devis détaillé en 24h</span>
+                        <span>Stratégie personnalisée pour votre projet</span>
                     </div>
                     <div class="exit-popup-benefit">
                         <i class="fas fa-check-circle"></i>
-                        <span>Sans engagement</span>
+                        <span>Devis détaillé sous 24h garanti</span>
                     </div>
                 </div>
 
@@ -1986,7 +2035,7 @@
             // IMPORTANT: Remplacez 'votre-compte-cal/30min' par votre vrai lien Cal.com
             // Exemple: 'agencebungee/consultation' ou 'john-doe/30min'
             Cal("openModal", {
-                calLink: "votre-compte-cal/30min",
+                calLink: "agencebungee/consultation-projet",
                 config: {
                     name: quizData.name || '',
                     email: quizData.email || '',
@@ -2238,7 +2287,7 @@ Mon téléphone : ${phone}`;
         const exitPopup = document.getElementById('exit-intent-popup');
 
         // DEBUG MODE - Définir à true pour tester facilement
-        const DEBUG_MODE = true; // Changez à false en production
+        const DEBUG_MODE = false; // Changez à false en production
 
         // Check if already shown (cookie)
         function hasExitPopupBeenShown() {
@@ -2250,13 +2299,41 @@ Mon téléphone : ${phone}`;
         function setExitPopupCookie() {
             if (DEBUG_MODE) return; // Ne pas définir de cookie en mode debug
             const expiryDate = new Date();
-            expiryDate.setDate(expiryDate.getDate() + 7); // Show again after 7 days
+            expiryDate.setDate(expiryDate.getDate() + 3); // Show again after 3 days
             document.cookie = `exitPopupShown=true; expires=${expiryDate.toUTCString()}; path=/`;
         }
 
+        // Adapter les textes selon le contexte
+        function adaptPopupTexts(trigger) {
+            const titleEl = document.getElementById('exit-popup-title');
+            const subtitleEl = document.getElementById('exit-popup-subtitle');
+            const offerTitleEl = document.getElementById('exit-popup-offer-title');
+            const offerDescEl = document.getElementById('exit-popup-offer-desc');
+            
+            if (trigger === 'exit') {
+                // Popup déclenché par intention de sortie - Message urgent
+                titleEl.textContent = '⏰ Attendez ! Votre projet mérite mieux';
+                subtitleEl.textContent = 'Plus que 3 places disponibles ce mois-ci';
+                offerTitleEl.textContent = 'Consultation stratégique offerte (valeur 150€)';
+                offerDescEl.textContent = 'On décortique votre projet ensemble. Vous repartez avec un plan d\'action concret et un devis détaillé, même si vous ne travaillez pas avec nous.';
+            } else if (trigger === 'scroll') {
+                // Popup après scroll profond - L'utilisateur est intéressé
+                titleEl.textContent = '🎯 Vous avez un projet en tête ?';
+                subtitleEl.textContent = 'Parlons-en avant que vous ne partiez';
+                offerTitleEl.textContent = 'Premier appel découverte offert (30 min)';
+                offerDescEl.textContent = 'Vous avez parcouru notre site, c\'est le moment parfait pour échanger. On analyse votre projet et vous donne des conseils actionnables dès maintenant.';
+            } else {
+                // Popup après temps sur la page - Message de réassurance
+                titleEl.textContent = '💡 Une question sur votre projet ?';
+                subtitleEl.textContent = 'On est là pour vous aider (gratuitement)';
+                offerTitleEl.textContent = 'Audit gratuit de votre projet digital';
+                offerDescEl.textContent = 'Vous hésitez encore ? Normal. Discutons 15 minutes, on vous oriente vers la meilleure solution pour vous, sans engagement.';
+            }
+        }
+
         // Show exit popup
-        function showExitPopup() {
-            console.log('🎯 Tentative d\'affichage du popup...');
+        function showExitPopup(trigger = 'exit') {
+            console.log('🎯 Tentative d\'affichage du popup...', 'Trigger:', trigger);
             
             // Vérifier que l'élément existe
             if (!exitPopup) {
@@ -2270,13 +2347,19 @@ Mon téléphone : ${phone}`;
             
             if (!exitIntentShown && !hasExitPopupBeenShown()) {
                 console.log('✅ Affichage du popup !');
+                
+                // Adapter les textes selon le contexte
+                adaptPopupTexts(trigger);
+                
                 exitPopup.classList.add('active');
                 exitIntentShown = true;
                 setExitPopupCookie();
                 
                 // Track in analytics if available
                 if (typeof gtag !== 'undefined') {
-                    gtag('event', 'exit_intent_shown');
+                    gtag('event', 'exit_intent_shown', {
+                        'trigger_type': trigger
+                    });
                 }
             } else {
                 console.log('❌ Popup non affiché - Conditions non remplies');
@@ -2327,23 +2410,47 @@ Mon téléphone : ${phone}`;
             // Check if mouse is leaving from the top
             if (e.clientY <= 0) {
                 mouseOutCount++;
-                // Show after user attempts to leave 2 times (less aggressive)
+                // Show on first exit attempt for maximum impact
                 if (mouseOutCount >= 1) {
-                    showExitPopup();
+                    const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                    
+                    // Si l'utilisateur a scrollé au moins 30%, il est intéressé
+                    if (scrollPercentage >= 30) {
+                        showExitPopup('exit');
+                    }
                 }
             }
         });
 
-        // Also show after certain time on page (backup trigger)
+        // Trigger après scroll profond (utilisateur très engagé)
+        let hasScrolledDeep = false;
+        window.addEventListener('scroll', () => {
+            if (hasScrolledDeep || exitIntentShown) return;
+            
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            // Si l'utilisateur atteint 70% de scroll, il est très intéressé
+            if (scrollPercentage >= 70) {
+                hasScrolledDeep = true;
+                // Attendre 5 secondes après le scroll profond
+                setTimeout(() => {
+                    if (!exitIntentShown) {
+                        showExitPopup('scroll');
+                    }
+                }, 5000);
+            }
+        });
+
+        // Backup trigger: temps sur la page (pour ceux qui lisent longtemps)
         let timeOnPage = 0;
         const timeInterval = setInterval(() => {
             timeOnPage += 1000;
-            // Show after 45 seconds if still no interaction
-            if (timeOnPage >= 45000 && !exitIntentShown && !hasExitPopupBeenShown()) {
+            // Show after 60 seconds si l'utilisateur est toujours là
+            if (timeOnPage >= 60000 && !exitIntentShown && !hasExitPopupBeenShown()) {
                 const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                // Only if user has scrolled at least 50%
-                if (scrollPercentage >= 50) {
-                    showExitPopup();
+                // Seulement si l'utilisateur a au moins scrollé un peu
+                if (scrollPercentage >= 20) {
+                    showExitPopup('time');
                     clearInterval(timeInterval);
                 }
             }
@@ -2361,18 +2468,25 @@ Mon téléphone : ${phone}`;
         window.exitPopupBookCall = exitPopupBookCall;
         window.exitPopupWhatsApp = exitPopupWhatsApp;
         window.showExitPopup = showExitPopup; // Pour tester manuellement
-        window.testExitPopup = function() {
-            console.log('🧪 Test manuel du popup...');
+        window.testExitPopup = function(trigger = 'exit') {
+            console.log('🧪 Test manuel du popup avec trigger:', trigger);
             exitIntentShown = false; // Reset pour permettre l'affichage
-            showExitPopup();
+            showExitPopup(trigger);
         };
 
         // Info dans la console
         console.log('');
         console.log('🎯 EXIT INTENT POPUP - Commandes disponibles:');
-        console.log('   testExitPopup()      - Afficher le popup maintenant');
-        console.log('   closeExitPopup()     - Fermer le popup');
+        console.log('   testExitPopup("exit")    - Tester version "intention de sortie"');
+        console.log('   testExitPopup("scroll")  - Tester version "scroll profond"');
+        console.log('   testExitPopup("time")    - Tester version "temps sur page"');
+        console.log('   closeExitPopup()         - Fermer le popup');
         console.log('   DEBUG_MODE actuel:', DEBUG_MODE ? '✅ ACTIVÉ' : '❌ DÉSACTIVÉ');
+        console.log('');
+        console.log('💡 Déclencheurs actifs:');
+        console.log('   - Exit intent: survol sortant + 30% scroll minimum');
+        console.log('   - Scroll profond: 70% de scroll + 5s de délai');
+        console.log('   - Temps: 60s sur la page + 20% scroll minimum');
         console.log('');
     </script>
 </body>

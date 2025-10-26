@@ -11,6 +11,28 @@
 body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    /* Mobile optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Mobile-first touch optimizations */
+button, a, input, textarea, select {
+    -webkit-tap-highlight-color: rgba(102, 126, 234, 0.1);
+}
+
+/* Prevent zoom on input focus (iOS) */
+@media screen and (max-width: 767px) {
+    select, textarea, input[type="text"], 
+    input[type="password"], input[type="datetime"], 
+    input[type="datetime-local"], input[type="date"], 
+    input[type="month"], input[type="time"], 
+    input[type="week"], input[type="number"], 
+    input[type="email"], input[type="url"], 
+    input[type="search"], input[type="tel"] {
+        font-size: 16px !important; /* Prevents iOS zoom */
+    }
 }
 
 /* Gradient text - shadcn style */
@@ -51,16 +73,16 @@ body {
   width: 100%;
 }
 
-/* Buttons - shadcn style */
+/* Buttons - shadcn style - MOBILE FIRST */
 .btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 500;
-    height: 2.5rem;
-    padding: 0 1rem;
+    min-height: 44px; /* Touch target minimum */
+    padding: 0.75rem 1.25rem;
     background: hsl(222.2 47.4% 11.2%);
     color: hsl(210 40% 98%);
     transition: all 0.2s;
@@ -77,10 +99,10 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: var(--radius);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 500;
-    height: 2.5rem;
-    padding: 0 1rem;
+    min-height: 44px; /* Touch target minimum */
+    padding: 0.75rem 1.25rem;
     background: transparent;
     color: hsl(222.2 47.4% 11.2%);
     transition: all 0.2s;
@@ -140,7 +162,7 @@ body {
     animation: scroll 2s ease-in-out infinite;
 }
 
-/* Service Cards V2 - shadcn style */
+/* Service Cards V2 - shadcn style - MOBILE FIRST */
 .service-card-v2 {
     position: relative;
     background: white;
@@ -150,6 +172,8 @@ body {
     transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
+    /* Mobile optimizations */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
 .service-card-v2:hover {
@@ -720,9 +744,10 @@ body {
     border-radius: var(--radius);
     border: 1px solid hsl(214.3 31.8% 91.4%);
     background: white;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem; /* Better for mobile - prevents zoom on iOS */
     transition: all 0.2s;
+    min-height: 44px; /* Touch target minimum */
 }
 
 .form-input:focus {
@@ -845,38 +870,184 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ===================================== 
+   MOBILE FIRST RESPONSIVE STYLES
+   ===================================== */
+
+/* Mobile base styles are default */
+
+/* Tablet and up (768px+) */
+@media (min-width: 768px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
     
     .section-header h2 {
-        font-size: 2rem;
+        font-size: 3rem;
+    }
+    
+    .whatsapp-float {
+        bottom: 2rem;
+        right: 2rem;
+    }
+    
+    .back-to-top {
+        bottom: 2rem;
+        right: 6rem;
+    }
+    
+    .visual-card {
+        padding: 3rem;
+    }
+    
+    .contact-card {
+        padding: 3rem;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: 3.75rem;
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 767px) {
+    .hero-title {
+        font-size: 2.25rem;
+        line-height: 1.2;
+    }
+    
+    .section-header h2 {
+        font-size: 1.875rem;
+        line-height: 1.2;
     }
     
     .whatsapp-float {
         bottom: 1rem;
         right: 1rem;
+        width: 3rem;
+        height: 3rem;
     }
     
     .back-to-top {
         bottom: 5rem;
         right: 1rem;
+        width: 2.75rem;
+        height: 2.75rem;
     }
     
     .visual-card {
-        padding: 2rem;
+        padding: 1.5rem;
     }
     
     .contact-card {
         padding: 1.5rem;
+    }
+    
+    /* Improve service cards on mobile */
+    .service-header {
+        padding: 1.5rem;
+    }
+    
+    .service-body {
+        padding: 1.5rem;
+    }
+    
+    .service-icon-large {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.75rem;
+    }
+    
+    /* Optimize portfolio images for mobile */
+    .portfolio-image {
+        height: 200px;
+    }
+    
+    /* Better spacing for testimonials */
+    .testimonial-featured {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-card-premium {
+        padding: 1.5rem;
+    }
+    
+    /* Process steps mobile optimization */
+    .step-number {
+        font-size: 2.5rem;
+    }
+    
+    /* Advantage cards mobile */
+    .advantage-card {
+        padding: 1.5rem;
+    }
+    
+    .advantage-number {
+        font-size: 2.5rem;
+    }
+    
+    /* FAQ mobile */
+    .faq-question {
+        padding: 1.25rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 1.25rem 1.25rem 1.25rem;
     }
 }
 
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 767px) {
+    /* Reduce animations for better performance */
+    .animate-blob {
+        animation-duration: 10s;
+    }
+    
+    /* Optimize images */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+    
+    /* Better scroll on mobile */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Larger touch targets for links in navigation */
+    .nav-link, .mobile-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Optimize modals for mobile */
+    .modal-content {
+        max-height: 85vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Better spacing for mobile menu */
+    #mobile-menu {
+        padding-top: 5rem;
+    }
+    
+    /* Improve scroll indicator visibility on mobile */
+    .scroll-indicator {
+        opacity: 0.7;
+    }
 }
 
 /* Selection color */
@@ -960,20 +1131,6 @@ button:disabled {
     outline-offset: 2px;
 }
 
-/* Responsive improvements */
-@media (max-width: 768px) {
-    .advantage-number {
-        font-size: 3rem;
-    }
-    
-    .advantage-card {
-        padding: 2rem;
-    }
-    
-    .cta-banner h3 {
-        font-size: 2rem;
-    }
-}
 
 /* Quiz Conversational Styles - shadcn design system */
 .quiz-step {
