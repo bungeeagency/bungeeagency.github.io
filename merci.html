@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci ! Nous vous recontactons rapidement | Bungee</title>
+    <meta name="description" content="Merci pour votre demande ! Notre équipe vous recontacte dans les 2 heures pour discuter de votre projet web.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- Analytics - Conversion Event -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDYNZ3XX49"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NDYNZ3XX49');
+    
+    // Track conversion
+    gtag('event', 'conversion', {
+        'event_category': 'Formulaire',
+        'event_label': 'Contact Soumis',
+        'value': 1
+    });
+    </script>
+</head>
+<body class="font-sans antialiased bg-background">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <a href="index.html" class="text-2xl font-display font-bold">
+                    <span class="gradient-text">Bungee</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Thank You Section -->
+    <section class="min-h-screen flex items-center justify-center py-32">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center">
+                
+                <!-- Success Icon Animation -->
+                <div class="mb-8 inline-block">
+                    <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                        <i class="fas fa-check text-green-600 text-5xl"></i>
+                    </div>
+                </div>
+
+                <!-- Main Message -->
+                <h1 class="text-4xl sm:text-5xl font-display font-bold mb-6">
+                    Merci ! 🎉
+                </h1>
+                
+                <p class="text-xl text-muted-foreground mb-8">
+                    Votre demande a bien été reçue. Notre équipe vous recontacte dans les <strong>2 heures</strong> (jours ouvrés).
+                </p>
+
+                <!-- What Happens Next -->
+                <div class="bg-white rounded-lg p-8 border border-border mb-12 text-left">
+                    <h2 class="text-2xl font-display font-bold mb-6 text-center">
+                        <i class="fas fa-route text-primary mr-2"></i>
+                        Prochaines Étapes
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                                1
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Nous analysons votre demande (15 min)</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Notre équipe étudie votre projet pour préparer des recommandations personnalisées
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                                2
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Nous vous appelons (sous 2h)</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Discussion de 15-30 min pour comprendre vos besoins et objectifs
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                                3
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Proposition personnalisée (24h)</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Devis détaillé avec prix, délai, fonctionnalités et maquette si possible
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Démarrage projet (J+2)</h3>
+                                <p class="text-sm text-muted-foreground">
+                                    Signature du devis → Lancement immédiat de votre projet web
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Proof -->
+                <div class="bg-gradient-to-r from-primary/5 to-purple-50 rounded-lg p-8 border border-primary/20 mb-12">
+                    <h3 class="font-bold text-lg mb-4">En Attendant Notre Appel...</h3>
+                    <p class="text-sm text-muted-foreground mb-6">
+                        Rejoignez nos <strong>50+ clients satisfaits</strong> qui ont transformé leur business grâce à leur nouveau site web :
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">+156%</div>
+                            <div class="text-muted-foreground">Trafic organique moyen</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">+89%</div>
+                            <div class="text-muted-foreground">Demandes de devis</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">4.9/5</div>
+                            <div class="text-muted-foreground">Satisfaction client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Actions -->
+                <div class="mb-12">
+                    <p class="text-muted-foreground mb-6">
+                        <strong>Urgent ?</strong> Contactez-nous directement :
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:+33695119297" class="btn-primary inline-flex items-center gap-2">
+                            <i class="fas fa-phone"></i>
+                            Appeler : 06 95 11 92 97
+                        </a>
+                        <a href="https://wa.me/33695119297" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recommended Content -->
+                <div class="text-left bg-white rounded-lg p-8 border border-border">
+                    <h3 class="text-xl font-display font-bold mb-4 text-center">
+                        📚 En Attendant, Découvrez Nos Articles
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="blog/10-astuces-seo-optimiser-site-web-2025.html" class="group flex items-start gap-3 p-4 border border-border rounded-lg hover:border-primary hover:shadow-md transition-all">
+                            <i class="fas fa-search text-primary text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1 group-hover:text-primary">10 Astuces SEO 2025</h4>
+                                <p class="text-xs text-muted-foreground">Optimisez votre référencement Google</p>
+                            </div>
+                        </a>
+                        
+                        <a href="blog/creer-boutique-ecommerce-montbeliard.html" class="group flex items-start gap-3 p-4 border border-border rounded-lg hover:border-primary hover:shadow-md transition-all">
+                            <i class="fas fa-shopping-cart text-primary text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1 group-hover:text-primary">Créer Sa Boutique E-commerce</h4>
+                                <p class="text-xs text-muted-foreground">Guide complet pour vendre en ligne</p>
+                            </div>
+                        </a>
+                        
+                        <a href="blog/marketing-digital-local-montbeliard.html" class="group flex items-start gap-3 p-4 border border-border rounded-lg hover:border-primary hover:shadow-md transition-all">
+                            <i class="fas fa-chart-line text-primary text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1 group-hover:text-primary">Marketing Digital Local</h4>
+                                <p class="text-xs text-muted-foreground">Attirer plus de clients à Montbéliard</p>
+                            </div>
+                        </a>
+                        
+                        <a href="blog/site-web-responsive-mobile-first-2025.html" class="group flex items-start gap-3 p-4 border border-border rounded-lg hover:border-primary hover:shadow-md transition-all">
+                            <i class="fas fa-mobile-alt text-primary text-2xl"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1 group-hover:text-primary">Site Responsive 2025</h4>
+                                <p class="text-xs text-muted-foreground">Pourquoi le mobile-first est essentiel</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Back to Home -->
+                <div class="mt-12">
+                    <a href="index.html" class="text-muted-foreground hover:text-foreground text-sm">
+                        ← Retour à l'accueil
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Minimal -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white/60 text-sm">© 2025 Bungee - Agence Web Montbéliard</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+

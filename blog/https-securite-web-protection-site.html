@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTPS & Sécurité Web : Protégez Votre Site et Vos Clients | Bungee</title>
+    <meta name="description" content="La sécurité web n'est pas une option. Découvrez les bonnes pratiques pour protéger votre site internet : HTTPS, certificat SSL, protection données RGPD.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../styles.css" rel="stylesheet">
+</head>
+<body class="font-sans antialiased bg-background">
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <a href="../index.html" class="text-2xl font-display font-bold"><span class="gradient-text">Bungee</span></a>
+                <div class="flex items-center gap-8">
+                    <a href="../index.html">Accueil</a><a href="../blog.html">Blog</a><a href="../index.html#contact" class="btn-primary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="pt-32 pb-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="badge">Sécurité</span>
+                    <span class="text-sm text-muted-foreground"><i class="far fa-calendar mr-2"></i>1 Oct 2025</span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-display font-bold mb-6">HTTPS & Sécurité Web : Protégez Votre Site et Vos Clients</h1>
+                
+                <div class="mb-12 bg-gradient-to-br from-blue-100 to-indigo-100 h-64 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-lock text-8xl text-primary opacity-50"></i>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-xl text-muted-foreground mb-8">
+                        La <strong>sécurité web</strong> n'est pas un luxe, c'est une nécessité. Un site non sécurisé = perte de confiance + pénalité Google + risque juridique. En 2025, le HTTPS est le strict minimum. Découvrez comment protéger votre site et les données de vos clients.
+                    </p>
+
+                    <div class="bg-red-50 rounded-lg p-6 border border-red-200 mb-12">
+                        <h3 class="font-bold mb-4 text-red-900 flex items-center gap-2">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Pourquoi la sécurité est cruciale
+                        </h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li>• <strong>84% des internautes</strong> abandonnent un achat si le site n'est pas sécurisé (HTTPS)</li>
+                            <li>• <strong>Google pénalise</strong> les sites en HTTP dans les résultats de recherche</li>
+                            <li>• <strong>Chrome affiche "Non sécurisé"</strong> sur les sites sans HTTPS</li>
+                            <li>• <strong>Amende RGPD jusqu'à 4%</strong> du chiffre d'affaires en cas de fuite de données</li>
+                            <li>• <strong>43% des cyberattaques</strong> ciblent les petites entreprises</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="text-3xl font-display font-bold mb-4">1. HTTPS : Le Certificat SSL/TLS</h2>
+                    
+                    <div class="bg-white rounded-lg p-6 border border-border mb-8">
+                        <h3 class="font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-green-600"></i>
+                            Qu'est-ce que le HTTPS ?
+                        </h3>
+                        <p class="text-sm text-muted-foreground mb-4">
+                            <strong>HTTPS (HyperText Transfer Protocol Secure)</strong> est la version sécurisée du HTTP. Il crypte les échanges entre le navigateur et votre serveur grâce à un certificat SSL/TLS. Les données transitent de manière chiffrée : impossible à intercepter.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6 text-sm">
+                            <div>
+                                <h4 class="font-semibold mb-2 text-red-600">❌ HTTP (Non sécurisé)</h4>
+                                <ul class="space-y-1 text-muted-foreground">
+                                    <li>• Données en clair</li>
+                                    <li>• Interception possible</li>
+                                    <li>• Google vous pénalise</li>
+                                    <li>• Navigateur affiche "Non sécurisé"</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2 text-green-600">✅ HTTPS (Sécurisé)</h4>
+                                <ul class="space-y-1 text-muted-foreground">
+                                    <li>• Données cryptées</li>
+                                    <li>• Protection complète</li>
+                                    <li>• Boost SEO</li>
+                                    <li>• Cadenas vert rassurant</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-3">Types de Certificats SSL</h3>
+                    <div class="grid md:grid-cols-3 gap-6 mb-12">
+                        <div class="bg-white rounded-lg p-6 border border-border">
+                            <h4 class="font-bold mb-3">🔒 DV (Domain Validation)</h4>
+                            <p class="text-sm text-muted-foreground mb-3">Validation basique du nom de domaine. Gratuit avec Let's Encrypt.</p>
+                            <div class="text-xs bg-gray-100 p-3 rounded">
+                                <strong>Usage :</strong> Blogs, sites vitrines<br>
+                                <strong>Prix :</strong> Gratuit
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border border-border">
+                            <h4 class="font-bold mb-3">🏢 OV (Organization Validation)</h4>
+                            <p class="text-sm text-muted-foreground mb-3">Validation de l'entreprise. Plus de confiance.</p>
+                            <div class="text-xs bg-gray-100 p-3 rounded">
+                                <strong>Usage :</strong> Sites professionnels<br>
+                                <strong>Prix :</strong> 50-200€/an
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border border-border">
+                            <h4 class="font-bold mb-3">🛡️ EV (Extended Validation)</h4>
+                            <p class="text-sm text-muted-foreground mb-3">Validation maximale. Barre d'adresse verte.</p>
+                            <div class="text-xs bg-gray-100 p-3 rounded">
+                                <strong>Usage :</strong> E-commerce, banques<br>
+                                <strong>Prix :</strong> 200-1000€/an
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-3xl font-display font-bold mb-4">2. Sécurité des Données : RGPD</h2>
+                    
+                    <div class="bg-yellow-50 rounded-lg p-6 border border-yellow-200 mb-8">
+                        <h3 class="font-bold mb-3 text-yellow-900">📋 Obligations RGPD pour Votre Site</h3>
+                        <ul class="space-y-3 text-sm text-muted-foreground">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check text-green-600 mt-0.5"></i>
+                                <div>
+                                    <strong>Consentement explicite</strong> - Bannière cookies avec options de refus
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check text-green-600 mt-0.5"></i>
+                                <div>
+                                    <strong>Politique de confidentialité</strong> - Expliquez quelles données vous collectez et pourquoi
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check text-green-600 mt-0.5"></i>
+                                <div>
+                                    <strong>Droit d'accès</strong> - Permettez aux utilisateurs de consulter leurs données
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check text-green-600 mt-0.5"></i>
+                                <div>
+                                    <strong>Droit à l'oubli</strong> - Supprimez les données sur demande
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check text-green-600 mt-0.5"></i>
+                                <div>
+                                    <strong>Sécurisation</strong> - Protégez les données collectées (cryptage, accès restreint)
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h2 class="text-3xl font-display font-bold mb-4">3. Protection Contre les Attaques</h2>
+                    
+                    <div class="space-y-6 mb-12">
+                        <div class="bg-white rounded-lg p-6 border-l-4 border-red-500">
+                            <h3 class="font-bold mb-2 flex items-center gap-2">
+                                <i class="fas fa-bug text-red-600"></i>
+                                Injections SQL
+                            </h3>
+                            <p class="text-sm text-muted-foreground mb-3">
+                                L'attaquant insère du code malveillant dans vos formulaires pour accéder à votre base de données.
+                            </p>
+                            <div class="text-xs bg-green-50 p-3 rounded border border-green-200">
+                                <strong>Protection :</strong> Utiliser des requêtes préparées, valider et assainir toutes les entrées utilisateur
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border-l-4 border-orange-500">
+                            <h3 class="font-bold mb-2 flex items-center gap-2">
+                                <i class="fas fa-code text-orange-600"></i>
+                                XSS (Cross-Site Scripting)
+                            </h3>
+                            <p class="text-sm text-muted-foreground mb-3">
+                                Injection de scripts JavaScript malveillants dans vos pages web.
+                            </p>
+                            <div class="text-xs bg-green-50 p-3 rounded border border-green-200">
+                                <strong>Protection :</strong> Échapper les caractères spéciaux, utiliser Content Security Policy (CSP)
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border-l-4 border-purple-500">
+                            <h3 class="font-bold mb-2 flex items-center gap-2">
+                                <i class="fas fa-robot text-purple-600"></i>
+                                Attaques DDoS
+                            </h3>
+                            <p class="text-sm text-muted-foreground mb-3">
+                                Saturation de votre serveur avec des millions de requêtes pour rendre votre site inaccessible.
+                            </p>
+                            <div class="text-xs bg-green-50 p-3 rounded border border-green-200">
+                                <strong>Protection :</strong> Cloudflare, WAF (Web Application Firewall), limitation de débit
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border-l-4 border-blue-500">
+                            <h3 class="font-bold mb-2 flex items-center gap-2">
+                                <i class="fas fa-user-lock text-blue-600"></i>
+                                Brute Force
+                            </h3>
+                            <p class="text-sm text-muted-foreground mb-3">
+                                Tentatives répétées de deviner vos mots de passe admin.
+                            </p>
+                            <div class="text-xs bg-green-50 p-3 rounded border border-green-200">
+                                <strong>Protection :</strong> Limitation tentatives de connexion, authentification 2FA, mots de passe forts
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-3xl font-display font-bold mb-4">4. Bonnes Pratiques Sécurité</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-12">
+                        <div class="bg-white rounded-lg p-6 border border-border">
+                            <h3 class="font-bold mb-3">🔐 Mots de passe</h3>
+                            <ul class="space-y-2 text-sm text-muted-foreground">
+                                <li>• <strong>Minimum 12 caractères</strong></li>
+                                <li>• Majuscules + minuscules + chiffres + symboles</li>
+                                <li>• Changement régulier (tous les 3-6 mois)</li>
+                                <li>• Gestionnaire de mots de passe (1Password, Bitwarden)</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border border-border">
+                            <h3 class="font-bold mb-3">🔄 Mises à jour</h3>
+                            <ul class="space-y-2 text-sm text-muted-foreground">
+                                <li>• CMS (WordPress, etc.) toujours à jour</li>
+                                <li>• Plugins/extensions à jour</li>
+                                <li>• PHP/serveur à jour</li>
+                                <li>• Surveillance automatique des vulnérabilités</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border border-border">
+                            <h3 class="font-bold mb-3">💾 Sauvegardes</h3>
+                            <ul class="space-y-2 text-sm text-muted-foreground">
+                                <li>• <strong>Backup quotidien automatique</strong></li>
+                                <li>• Stockage externe sécurisé (cloud)</li>
+                                <li>• Test de restauration mensuel</li>
+                                <li>• Conservation 30 jours minimum</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-6 border border-border">
+                            <h3 class="font-bold mb-3">🛡️ Pare-feu (WAF)</h3>
+                            <ul class="space-y-2 text-sm text-muted-foreground">
+                                <li>• Cloudflare (gratuit ou Pro)</li>
+                                <li>• Sucuri</li>
+                                <li>• Wordfence (WordPress)</li>
+                                <li>• Filtrage IP malveillantes</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 rounded-lg p-6 border border-blue-200 mb-12">
+                        <h3 class="font-bold mb-4 text-blue-900">📊 Checklist Sécurité Mensuelle</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" class="w-4 h-4">
+                                <label>Vérifier les mises à jour disponibles</label>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" class="w-4 h-4">
+                                <label>Tester les sauvegardes</label>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" class="w-4 h-4">
+                                <label>Analyser les logs de sécurité</label>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" class="w-4 h-4">
+                                <label>Scanner les malwares</label>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" class="w-4 h-4">
+                                <label>Vérifier le certificat SSL (expiration)</label>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" class="w-4 h-4">
+                                <label>Changer mots de passe admin</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="bg-gradient-to-br from-primary/5 to-purple-50 rounded-lg p-8 mb-12 border border-primary/20">
+                        <h2 class="text-2xl font-display font-bold mb-4">Conclusion</h2>
+                        <p class="text-muted-foreground leading-relaxed mb-6">
+                            La <strong>sécurité web</strong> est un processus continu, pas une action ponctuelle. Un site sécurisé protège vos clients, votre réputation et votre business. Investir dans la sécurité, c'est investir dans la pérennité de votre activité en ligne.
+                        </p>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Chez <strong>Bungee</strong>, tous nos sites sont livrés avec HTTPS, sauvegardes automatiques, protection WAF et conformité RGPD. La sécurité est intégrée dès la conception.
+                        </p>
+                    </section>
+
+                    <div class="bg-white rounded-lg border-2 border-primary p-8 text-center">
+                        <h3 class="text-2xl font-display font-bold mb-4">Votre Site Est-il Vraiment Sécurisé ?</h3>
+                        <p class="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                            Audit de sécurité gratuit + recommandations d'experts pour protéger votre site et vos données.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="../index.html#contact" class="btn-primary"><i class="fas fa-shield-alt mr-2"></i>Audit sécurité gratuit</a>
+                            <a href="../blog.html" class="btn-secondary"><i class="fas fa-arrow-left mr-2"></i>Retour au blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white/60 text-sm">© 2025 Bungee - Agence Web Montbéliard</p>
+        </div>
+    </footer>
+</body>
+</html>
+

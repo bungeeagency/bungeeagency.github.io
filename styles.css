@@ -718,6 +718,20 @@ button, a, input, textarea, select {
     background: hsl(210 40% 98%);
 }
 
+/* New FAQ Section */
+.faq-answer {
+    transition: all 0.3s ease-out;
+}
+
+/* Hover effects for tables */
+table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+table tbody tr:hover {
+    background-color: hsl(210 40% 98%);
+}
+
 /* Contact Form */
 .contact-card {
     background: white;

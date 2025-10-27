@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    
+    <!-- Primary Meta Tags -->
+    <title>Blog Création Web - Conseils & Actualités | Bungee Montbéliard</title>
+    <meta name="title" content="Blog Création Web - Conseils & Actualités | Bungee Montbéliard">
+    <meta name="description" content="Découvrez nos articles sur la création de sites web, le référencement SEO, le marketing digital et les dernières tendances web. Conseils d'experts à Montbéliard.">
+    <meta name="keywords" content="blog création web, conseils seo, tendances web, marketing digital, agence web montbéliard, tutoriels site internet">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bungeeagency.github.io/blog.html">
+    <meta property="og:title" content="Blog Création Web - Conseils & Actualités | Bungee">
+    <meta property="og:description" content="Découvrez nos articles sur la création de sites web, le référencement SEO et les tendances digitales.">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://bungeeagency.github.io/blog.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- Schema.org for Blog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog Bungee - Agence Web Montbéliard",
+      "description": "Articles et conseils sur la création web, le SEO et le marketing digital",
+      "url": "https://bungeeagency.github.io/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bungee",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bungeeagency.github.io/images/logo.png"
+        }
+      }
+    }
+    </script>
+</head>
+<body class="font-sans antialiased bg-background text-foreground">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <a href="index.html" class="text-2xl font-display font-bold tracking-tight">
+                    <span class="gradient-text">Bungee</span>
+                </a>
+                
+                <div class="flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Accueil</a>
+                    <a href="index.html#services" class="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Services</a>
+                    <a href="index.html#contact" class="btn-primary">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Blog -->
+    <section class="pt-32 pb-16 sm:pt-40 sm:pb-24 bg-secondary/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Blog & Actualités</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-4 mb-6">
+                    Conseils & Astuces <span class="gradient-text">Création Web</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Découvrez nos articles sur la création de sites internet, le référencement SEO, le marketing digital et les dernières tendances web.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles -->
+    <section class="py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Articles Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Article 1 -->
+                    <article class="bg-white rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg">
+                        <div class="h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center">
+                            <i class="fas fa-search text-6xl text-primary opacity-50"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="badge">SEO</span>
+                                <span class="text-sm text-muted-foreground">5 min</span>
+                            </div>
+                            <h2 class="text-xl font-display font-bold mb-3 hover:text-primary transition-colors">
+                                10 Astuces SEO pour Optimiser Votre Site Web en 2025
+                            </h2>
+                            <p class="text-muted-foreground text-sm mb-4 leading-relaxed">
+                                Découvrez les meilleures pratiques SEO pour améliorer le référencement naturel de votre site internet sur Google et attirer plus de clients qualifiés.
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-border">
+                                <span class="text-xs text-muted-foreground">27 Oct 2025</span>
+                                <a href="blog/10-astuces-seo-optimiser-site-web-2025.html" class="text-sm font-medium text-primary hover:underline">
+                                    Lire l'article →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="bg-white rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg">
+                        <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-6xl text-primary opacity-50"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="badge">Design</span>
+                                <span class="text-sm text-muted-foreground">7 min</span>
+                            </div>
+                            <h2 class="text-xl font-display font-bold mb-3 hover:text-primary transition-colors">
+                                Pourquoi Votre Site Doit Être 100% Responsive en 2025
+                            </h2>
+                            <p class="text-muted-foreground text-sm mb-4 leading-relaxed">
+                                Plus de 70% des internautes naviguent sur mobile. Découvrez pourquoi un design responsive est essentiel pour votre business.
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-border">
+                                <span class="text-xs text-muted-foreground">20 Oct 2025</span>
+                                <a href="blog/site-web-responsive-mobile-first-2025.html" class="text-sm font-medium text-primary hover:underline">
+                                    Lire l'article →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="bg-white rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg">
+                        <div class="h-48 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-6xl text-primary opacity-50"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="badge">E-commerce</span>
+                                <span class="text-sm text-muted-foreground">6 min</span>
+                            </div>
+                            <h2 class="text-xl font-display font-bold mb-3 hover:text-primary transition-colors">
+                                Guide Complet : Créer Sa Boutique E-commerce à Montbéliard
+                            </h2>
+                            <p class="text-muted-foreground text-sm mb-4 leading-relaxed">
+                                Vous souhaitez vendre en ligne ? Découvrez notre guide complet pour lancer votre boutique e-commerce et booster vos ventes.
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-border">
+                                <span class="text-xs text-muted-foreground">15 Oct 2025</span>
+                                <a href="blog/creer-boutique-ecommerce-montbeliard.html" class="text-sm font-medium text-primary hover:underline">
+                                    Lire l'article →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="bg-white rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg">
+                        <div class="h-48 bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-6xl text-primary opacity-50"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="badge">Marketing</span>
+                                <span class="text-sm text-muted-foreground">8 min</span>
+                            </div>
+                            <h2 class="text-xl font-display font-bold mb-3 hover:text-primary transition-colors">
+                                Marketing Digital Local : Attirer Plus de Clients à Montbéliard
+                            </h2>
+                            <p class="text-muted-foreground text-sm mb-4 leading-relaxed">
+                                Stratégies de marketing digital pour les commerces locaux : SEO local, Google My Business, réseaux sociaux et publicité en ligne.
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-border">
+                                <span class="text-xs text-muted-foreground">10 Oct 2025</span>
+                                <a href="blog/marketing-digital-local-montbeliard.html" class="text-sm font-medium text-primary hover:underline">
+                                    Lire l'article →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="bg-white rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg">
+                        <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
+                            <i class="fas fa-bolt text-6xl text-primary opacity-50"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="badge">Performance</span>
+                                <span class="text-sm text-muted-foreground">5 min</span>
+                            </div>
+                            <h2 class="text-xl font-display font-bold mb-3 hover:text-primary transition-colors">
+                                Vitesse de Chargement : Impact Direct Sur Vos Conversions
+                            </h2>
+                            <p class="text-muted-foreground text-sm mb-4 leading-relaxed">
+                                Un site lent fait fuir vos visiteurs. Découvrez comment optimiser la vitesse de votre site pour améliorer vos conversions.
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-border">
+                                <span class="text-xs text-muted-foreground">5 Oct 2025</span>
+                                <a href="blog/vitesse-chargement-impact-conversions.html" class="text-sm font-medium text-primary hover:underline">
+                                    Lire l'article →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="bg-white rounded-lg border border-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg">
+                        <div class="h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
+                            <i class="fas fa-lock text-6xl text-primary opacity-50"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="badge">Sécurité</span>
+                                <span class="text-sm text-muted-foreground">6 min</span>
+                            </div>
+                            <h2 class="text-xl font-display font-bold mb-3 hover:text-primary transition-colors">
+                                HTTPS & Sécurité Web : Protégez Votre Site et Vos Clients
+                            </h2>
+                            <p class="text-muted-foreground text-sm mb-4 leading-relaxed">
+                                La sécurité web n'est pas une option. Découvrez les bonnes pratiques pour protéger votre site internet et rassurer vos visiteurs.
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-border">
+                                <span class="text-xs text-muted-foreground">1 Oct 2025</span>
+                                <a href="blog/https-securite-web-protection-site.html" class="text-sm font-medium text-primary hover:underline">
+                                    Lire l'article →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-16 text-center bg-white rounded-lg border border-border p-12">
+                    <h3 class="text-2xl sm:text-3xl font-display font-bold mb-4">Besoin d'un Site Web Professionnel ?</h3>
+                    <p class="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                        Notre agence web à Montbéliard vous accompagne dans la création de votre site internet. Devis gratuit et personnalisé en 24h.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="index.html#contact" class="btn-primary">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            Demander un devis
+                        </a>
+                        <a href="index.html#portfolio" class="btn-secondary">
+                            <i class="fas fa-eye mr-2"></i>
+                            Voir nos réalisations
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-display font-bold mb-4">
+                            <span class="gradient-text-white">Bungee</span>
+                        </h3>
+                        <p class="text-white/70 text-sm leading-relaxed">
+                            Agence web créative à Montbéliard spécialisée dans la création de sites internet professionnels.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-4">Navigation</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="index.html" class="footer-link">Accueil</a></li>
+                            <li><a href="index.html#services" class="footer-link">Services</a></li>
+                            <li><a href="index.html#portfolio" class="footer-link">Portfolio</a></li>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-4">Légal</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="mentions-legales.html" class="footer-link">Mentions légales</a></li>
+                            <li><a href="politique-confidentialite.html" class="footer-link">Politique de confidentialité</a></li>
+                            <li><a href="cgv.html" class="footer-link">CGV</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-white/10 pt-8 text-center text-sm text-white/60">
+                    <p>© 2025 Bungee - Agence Web Montbéliard. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
