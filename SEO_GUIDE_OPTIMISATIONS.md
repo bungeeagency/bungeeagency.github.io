@@ -253,7 +253,7 @@ H1: "Agence Web Montbéliard - Création de Sites Internet Professionnels"
 ### 1. Google Search Console (URGENT)
 ```
 1. Créer compte https://search.google.com/search-console
-2. Ajouter propriété : bungeeagency.github.io
+2. Ajouter propriété : agencebungee.fr
 3. Soumettre sitemap.xml
 4. Vérifier indexation des pages
 ```
@@ -550,7 +550,7 @@ Termes connexes intégrés naturellement :
 **Contact :**
 📞 06 95 11 92 97
 📧 contact@agencebungee.fr
-🌐 https://bungeeagency.github.io
+🌐 https://agencebungee.fr
 
 ---
 

@@ -4,9 +4,9 @@
 
 ### Google Search Console
 - [ ] Créer compte Google Search Console
-- [ ] Ajouter la propriété bungeeagency.github.io
+- [ ] Ajouter la propriété agencebungee.fr
 - [ ] Vérifier la propriété (méthode HTML tag ou DNS)
-- [ ] Soumettre sitemap.xml : `https://bungeeagency.github.io/sitemap.xml`
+- [ ] Soumettre sitemap.xml : `https://agencebungee.fr/sitemap.xml`
 - [ ] Demander indexation des pages principales
 
 ### Google Analytics 4
@@ -24,7 +24,7 @@
   - Catégorie : Agence de marketing Internet / Concepteur de sites Web
   - Adresse : Montbéliard, 25200
   - Téléphone : 06 95 11 92 97
-  - Site web : https://bungeeagency.github.io
+  - Site web : https://agencebungee.fr
   - Horaires d'ouverture : Lun-Ven 9h-18h
 - [ ] Ajouter 10+ photos de qualité
 - [ ] Rédiger description (750 caractères max)
@@ -320,7 +320,7 @@
 
 📞 **Téléphone :** 06 95 11 92 97
 📧 **Email :** contact@agencebungee.fr
-🌐 **Site :** https://bungeeagency.github.io
+🌐 **Site :** https://agencebungee.fr
 📍 **Adresse :** Montbéliard, Franche-Comté
 
 **Consultation SEO gratuite 30 min :**

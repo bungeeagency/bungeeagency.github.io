@@ -1,5 +1,5 @@
 # Robots.txt pour Bungee - Agence Web Montbéliard
-# https://bungeeagency.github.io/
+# https://agencebungee.fr/
 
 # Permettre à tous les robots d'indexer le site
 User-agent: *
@@ -13,13 +13,15 @@ Disallow: /*.md$
 
 # Permettre explicitement l'accès aux pages importantes
 Allow: /index.html
+Allow: /blog.html
+Allow: /blog/
 Allow: /mentions-legales.html
 Allow: /politique-confidentialite.html
 Allow: /cgv.html
 Allow: /images/
 
 # Spécifier le sitemap
-Sitemap: https://bungeeagency.github.io/sitemap.xml
+Sitemap: https://agencebungee.fr/sitemap.xml
 
 # Règles spécifiques pour les principaux moteurs de recherche
 User-agent: Googlebot
